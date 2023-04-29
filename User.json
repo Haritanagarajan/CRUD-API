@@ -1,103 +1,13 @@
 {
   "User": [
     {
-      "UserName": "harita",
-      "Age": "21",
-      "Sex": "Male",
-      "ContactNo": "6382830515",
-      "EmailID": "vasanth@gmail.com",
-      "UserImage": "https://www.melivecode.com/users/1.png",
-      "id": 1
-    },
-    {
-      "id": 2,
-      "Username": "Kavitha",
-      "Age": 21,
-      "Sex": "Female",
-      "ContactNo": 8248276484,
-      "EmailID": "kavitha@gmail.com",
-      "UserImage": "https://www.melivecode.com/users/2.png"
-    },
-    {
-      "id": 3,
-      "Username": "Harita",
-      "Age": 22,
-      "Sex": "Female",
-      "ContactNo": 9025457758,
-      "EmailID": "harita@gmail.com",
-      "UserImage": "https://www.melivecode.com/users/3.png"
-    },
-    {
-      "id": 4,
-      "Username": "Ajay",
-      "Age": 28,
-      "Sex": "Male",
-      "ContactNo": 9786657055,
-      "EmailID": "ajay@gmail.com",
-      "UserImage": "https://www.melivecode.com/users/4.png"
-    },
-    {
-      "id": 5,
-      "Username": "Zaara",
-      "Age": 23,
-      "Sex": "Female",
-      "ContactNo": 8870743979,
-      "EmailID": "zaara@gmail.com",
-      "UserImage": "https://www.melivecode.com/users/5.png"
-    },
-    {
-      "id": 7,
-      "Username": "Nithin",
-      "Age": 26,
-      "Sex": "Male",
-      "ContactNo": 6383125660,
-      "EmailID": "nithin@gmail.com",
-      "UserImage": "https://www.melivecode.com/users/6.png"
-    },
-    {
-      "id": 8,
-      "Username": "Johnpaul",
-      "Age": 29,
-      "Sex": "Male",
-      "ContactNo": 6384530789,
-      "EmailID": "johnpaul@gmail.com",
-      "UserImage": "https://www.melivecode.com/users/7.png"
-    },
-    {
-      "id": 9,
-      "Username": "Hridhaiyesh",
-      "Age": 27,
-      "Sex": "Male",
-      "ContactNo": 8082830515,
-      "EmailID": "hridhaiyesh@gmail.com",
-      "UserImage": "https://www.melivecode.com/users/8.png"
-    },
-    {
-      "id": 10,
-      "Username": "Karthick",
-      "Age": 28,
-      "Sex": "Male",
-      "ContactNo": 6055730515,
-      "EmailID": "karthick@gmail.com",
-      "UserImage": "https://www.melivecode.com/users/9.png"
-    },
-    {
-      "id": 11,
-      "Username": "Aish",
-      "Age": 27,
-      "Sex": "Female",
-      "ContactNo": 9024788745,
-      "EmailID": "aish@gmail.com",
-      "UserImage": "https://www.melivecode.com/users/10.png"
-    },
-    {
       "UserName": "hhh",
       "Age": "22",
-      "Sex": "male",
+      "Sex": "Male",
       "ContactNo": "wqr2fq2",
       "EmailID": "abc@gmail.com",
       "UserImage": "https://www.melivecode.com/users/1.png",
-      "id": 12
+      "id": 1
     }
   ]
 }

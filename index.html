@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,6 +13,20 @@
     <title>CRUD API</title>
 
     <link href="index.css" rel="stylesheet">
+    <script>
+        function validateform() {
+            var UserName = document.getElementById("UserName").value
+            var EmailID = document.getElementById("EmailID").value
+            var ContactNo = document.getElementById("ContactNo").value
+            if (UserName == null) {
+                alert("Name can't be blank");
+                return false;
+            } else if (ContactNo.length < 10) {
+                alert("Contact number must be 10 characters.");
+                return false;
+            }
+        }  
+    </script>
 </head>
 
 <body>

@@ -8,5 +8,22 @@
   }
   
   td {
-    line-height: 3rem;
+    line-height: 4rem;
   }
+  .swal2-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .swal2-row label {
+    flex-basis: 100px;
+    margin-right: 10px;
+  }
+  
+  .swal2-row input[type="radio"],
+  .swal2-row input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  
