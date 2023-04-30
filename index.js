@@ -22,11 +22,11 @@ function loadTable() {
                     object["UserImage"] +
                     '" class="avatar"></td>';
                 trHTML +=
-                    '<td><button type="button" class="btn btn-outline-secondary" onclick="showUserEditBox(' +
+                    '<td><button type="button" id="edit" class="btn btn-outline-secondary" onclick="showUserEditBox(' +
                     object["id"] +
                     ')">Edit</button>';
                 trHTML +=
-                    '<button type="button" class="btn btn-outline-danger" onclick="userDelete(' +
+                    '<button type="button" id="del" class="btn btn-outline-danger" onclick="userDelete(' +
                     object["id"] +
                     ')">Del</button></td>';
                 trHTML += "</tr>";
@@ -47,38 +47,43 @@ function showUserCreateBox() {
             '<input id="id" type="hidden" class="swal2-input">' +
             "</div>" +
 
+
             '<div class="swal2-row">' +
             '<label for="UserName">UserName</label>' +
-            '<input id="UserName" class="swal2-input" placeholder="UserName">' +
-            "</div>" +
+            '<input id="UserName" name="UserName" class="swal2-input" placeholder="UserName" pattern="[a-zA-Z]+" required>' +
+            '</div>' +
 
             '<div class="swal2-row">' +
             '<label for="Age">Age</label>' +
-            '<input id="Age" class="swal2-input" placeholder="Age">' +
+            '<input id="Age" class="swal2-input" placeholder="Age" required>' +
             "</div>" +
 
             '<div class="swal2-row">' +
             '<label for="Sex">Sex</label>' +
-            '<input id="Sex"  class="swal2-input" type="radio" placeholder="Sex" value="Male">male' +
-            '<input id="Sex" class="swal2-input" type="radio" placeholder="Sex" value="Female">female' +
+            '<input id="Sex" name="Sex" class="swal2-input" type="radio" placeholder="Sex" value="Male">male' +
+            '<input id="Sex" name="Sex" class="swal2-input" type="radio" placeholder="Sex" value="Female">female' +
             "</div>" +
 
             '<div class="swal2-row">' +
             '<label for="ContactNo">ContactNo</label>' +
-            '<input id="ContactNo" class="swal2-input" placeholder="ContactNo">' +
+            '<input id="ContactNo" class="swal2-input" placeholder="ContactNo" pattern="[0-9]{10}+" required>' +
             "</div>" +
 
             '<div class="swal2-row">' +
             '<label for="EmailID">EmailID</label>' +
-            '<input id="EmailID" class="swal2-input" placeholder="EmailID">' +
+            '<input id="EmailID" class="swal2-input" placeholder="EmailID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$">' +
             "</div>",
 
 
         preConfirm: () => {
+
             userCreate();
+
         },
     });
 }
+
+
 
 function userCreate() {
     // const id = document.getElementById("id").value;
@@ -154,27 +159,7 @@ function showUserEditBox(id) {
                     '<label for="EmailID">EmailID</label>' +
                     '<input id="EmailID" class="swal2-input" placeholder="EmailID" objects["EmailID"] >' +
                     "</div>",
-                // '<input id="id" class="swal2-input" type="hidden"  value="' +
-                // objects[`${id}`] +
-                // '">' +
-                // '<input id="UserName" class="swal2-input" placeholder="UserName" value="' +
-                // objects["UserName"] +
-                // '">' +
-                // '<input id="Age" class="swal2-input" placeholder="Age" value="' +
-                // objects["Age"] +
-                // '">' +
-                // '<input id="Sex" type="radio" class="swal2-input" placeholder="Sex" value="male' +
-                // objects["Sex"] +
-                // '">' +
-                // '<input id="Sex" type="radio" class="swal2-input" placeholder="Sex" value="female' +
-                // objects["Sex"] +
-                // '" >' +
-                // '<input id="ContactNo" class="swal2-input" placeholder="ContactNo" value="' +
-                // objects["ContactNo"] +
-                // '">' +
-                // '<input id="EmailID" class="swal2-input" placeholder="EmailID" value="' +
-                // objects["EmailID"] +
-                // '">',
+
                 preConfirm: () => {
                     userEdit(id);
                 },
@@ -215,69 +200,31 @@ function userEdit(id) {
     };
 }
 
-// function userDelete(id) {
-//     console.log(id);
-//     const xhttp = new XMLHttpRequest();
-//     xhttp.open(`DELETE`, `http://localhost:3000/User/${id}`);
-//     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-//     xhttp.send(
-//         JSON.stringify({
-//             id: id,
-//         })
-//     );
-//     xhttp.onreadystatechange = function () {
-//         if (this.readyState == 4) {
-//             const objects = JSON.parse(this.responseText);
-//             Swal.fire({
-//                 title: "Are you sure?",
-//                 text: "You won't be able to revert this!",
-//                 type: "warning",
-//                 showCancelButton: true,
-//                 confirmButtonColor: "#3085d6",
-//                 cancelButtonColor: "#d33",
-//                 confirmButtonText: "Yes, delete it!",
-//               }).then((result) => {
-//                 if (result.value) {
-//                   xhttp.send(JSON.stringify({ id: id }));
-//                   xhttp.onreadystatechange = function () {
-//                     if (this.readyState == 4) {
-//                       const objects = JSON.parse(this.responseText);
-//                       Swal.fire(objects["message"]);
-//                       loadTable();
-//                     }
-//                   };
-//                 }
-//               });
-//             }
-//         } 
-//     }
 
-function userDelete(id)
- {
-  console.log(id)
-;
-  const xhttp = new XMLHttpRequest();
-  xhttp.open(`DELETE`, `http://localhost:3000/company/${id}`);
-  xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+function userDelete(id) {
+    console.log(id);
+    const xhttp = new XMLHttpRequest();
+    xhttp.open(`DELETE`, `http://localhost:3000/User/${id}`);
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
-  Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
-    type: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!",
-  }).then((result) => {
-    if (result.value) {
-      xhttp.send(JSON.stringify({ id: id }));
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4) {
-          const objects = JSON.parse(this.responseText);
-          Swal.fire(objects["message"]);
-          loadTable();
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+        if (result.value) {
+            xhttp.send(JSON.stringify({ id: id }));
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    const objects = JSON.parse(this.responseText);
+                    Swal.fire(objects["message"]);
+                    loadTable();
+                }
+            };
         }
-      };
-    }
-  });
+    });
 }
