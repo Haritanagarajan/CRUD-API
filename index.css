@@ -1,56 +1,132 @@
+body {
+  font-size: 1.25rem;
+  background-color: black;
 
-  
-  body {
-    font-size: 1.25rem;
-    background-color: #f6f8fa;
-  }
- #edit{
-  margin-top:-30px;
+}
+
+#edit {
+  margin-top: -30px;
   border-radius: 7px;
   margin-left: 10px;
-  font-weight:600;
+  font-weight: 600;
   border-width: 2px;
-  
- }
- #del{
-  border-radius: 7px;
-  margin-left: -50px;
-  margin-top:80px;
-  font-weight:600;
-  border-width: 2px;
- }
-#create{
-  border-width: 2px;
-  font-weight:600;
-  margin-left:-105px;
+  background-color: rgb(117, 190, 21);
+  border: 2px solid black;
+
 }
-  td {
-    line-height: 3rem;
-    
-  }
-  .swal2-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .swal2-row label {
-    flex-basis: 100px;
-    margin-right: 10px;
-  }
-  
-  .swal2-row input[type="radio"],
-  .swal2-row input[type="checkbox"] {
-    margin-right: 5px;
-    margin-top:5px;
-  }
 
-  .swal2-row label{
-    text-transform: capitalize;
-    font-weight: 400;
-    font-size: large;
-    color:black;
-  }
-  
+#edit:hover {
+  transform: scale(1.1);
+}
 
-  
+#del:hover {
+  transform: scale(1.1);
+}
+
+#create:hover {
+  transform: scale(1.1);
+}
+
+#logo:hover {
+  transform: scale(1.1);
+}
+
+.buton:hover {
+  transform: scale(1.1);
+}
+
+#del {
+  border-radius: 7px;
+  margin-left: -55px;
+  margin-top: 80px;
+  font-weight: 600;
+  border-width: 2px;
+  background-color: rgb(117, 190, 21);
+  border: 2px solid black;
+
+}
+
+#create {
+  border-width: 2px;
+  font-weight: 600;
+  margin-left: -125px;
+  margin-top: 59px;
+  background-color: rgb(117, 190, 21);
+  border: 2px solid black;
+}
+
+td {
+  line-height: 3rem;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+th {
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.swal2-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.swal2-row label {
+  flex-basis: 100px;
+  margin-right: 10px;
+}
+
+.swal2-row input[type="radio"],
+.swal2-row input[type="checkbox"] {
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.swal2-row label {
+  text-transform: capitalize;
+  font-weight: 400;
+  font-size: large;
+  color: black;
+}
+
+#logo {
+  margin-top: -10px;
+  width: 100px;
+  height: 70px;
+  border-radius: 30px;
+  background-color: black;
+}
+
+#users {
+  margin-top: 50px;
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-shadow: 1px 1px 2px rgb(16, 16, 17);
+}
+
+#log {
+  background-color: black;
+  height: 60px;
+}
+
+.btn {
+  color: white;
+}
+
+.buton {
+  margin-top: 10px;
+  margin-left: 1300px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  background-color: rgb(117, 190, 21);
+  width: 140px;
+  height: 40px;
+  align-items: center;
+  border-radius: 20px;
+  color: white;
+  font-size: smaller;
+  border:2px solid black;
+}

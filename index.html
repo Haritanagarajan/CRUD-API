@@ -14,40 +14,37 @@
 
     <link href="index.css" rel="stylesheet">
     <script>
-        document.getElementById("search-btn").addEventListener("click", function() {
-  // get the search term from the input field
-  var searchTerm = document.querySelector(".navbar-search input").value;
-  
-  // do something with the search term, like fetch data from an API
-  console.log("Searching for: " + searchTerm);
-});
+        document.getElementById("search-btn").addEventListener("click", function () {
+            // get the search term from the input field
+            var searchTerm = document.querySelector(".navbar-search input").value;
+
+            // do something with the search term, like fetch data from an API
+            console.log("Searching for: " + searchTerm);
+        });
     </script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <form class="form-inline my-2 my-lg-0">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search" id="search">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" ID="submit" type="submit"><i class="fa fa-search"></i></button>
-              </div>
-            </div>
-          </form>
+    <nav id="log" class="navbar fixed-top navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img id="logo" src="./assets/images/lll-removebg-preview.png"
+                    alt="Users"></a>
         </div>
-      </nav>
+    </nav>
+    <nav id="logg" class="navbar fixed-top navbar-light">
+        <div class="container-fluid">
+            <a class="button" href="form.html"><button onclick="openLogin()" class="buton">My Account</button></a>
 
+        </div>
+    </nav>
     <div class="container">
         <div class="d-flex bd-highlight mb-3">
-            <div class="me-auto p-2 bd-highlight">
+            <div id="users" class="me-auto p-2 bd-highlight">
                 <h2>Users
             </div>
             <div class="p-2 bd-highlight">
-                <button type="button" class="btn btn-secondary" id="create" onclick="showUserCreateBox()"  onclick="validateUserCreate()"><i class="fas fa-user"></i></button>
+                <button type="button" class="btn btn-secondary" id="create" onclick="showUserCreateBox()"
+                    onclick="validateUserCreate()"><i class="fas fa-user-plus"></i></button>
             </div>
         </div>
 
@@ -55,7 +52,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        
+
                         <th scope="col">ID</th>
                         <th scope="col">UserName</th>
                         <th scope="col">Age</th>
@@ -63,7 +60,7 @@
                         <th scope="col">ContactNo</th>
                         <th scope="col">EmailID</th>
                         <th scope="col">UserImage</th>
-                        <th></th>
+                        <th>Options</th>
                     </tr>
                 </thead>
                 <tbody id="mytable">
@@ -75,12 +72,13 @@
         </div>
     </div>
 
+
     <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </body>
 
 </html>
