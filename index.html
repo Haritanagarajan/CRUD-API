@@ -15,38 +15,77 @@
     <link href="index.css" rel="stylesheet">
     <script>
         document.getElementById("search-btn").addEventListener("click", function () {
-            // get the search term from the input field
+          
             var searchTerm = document.querySelector(".navbar-search input").value;
 
-            // do something with the search term, like fetch data from an API
             console.log("Searching for: " + searchTerm);
         });
+    </script>
+
+    <script>
+        //alert for account button
+
+        function account() {
+            Swal.fire({
+                title: 'Account',
+                html:
+                    '<input id="username" class="swal2-input" placeholder="Username"> ' +
+                    '<input id="password" type="password" class="swal2-input" placeholder="Password">',
+
+                focusConfirm: false,
+                preConfirm: () => {
+                    const username = Swal.getPopup().querySelector('#username').value;
+                    const password = Swal.getPopup().querySelector('#password').value;
+                    return { username: username, password: password };
+                }
+            }).then((result) => {
+                if (result.value) {
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Logged in successfully',
+                        showConfirmButton: true,
+                        timer: 3000
+                    })
+                }
+            })
+        }
+
     </script>
 </head>
 
 <body>
+    <!--logo-->
     <nav id="log" class="navbar fixed-top navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img id="logo" src="./assets/images/twitter-removebg-preview.png"
                     alt="Users"></a>
         </div>
     </nav>
+
+     <!--account button-->
     <nav id="logg" class="navbar fixed-top navbar-light">
         <div class="container-fluid">
-            <a class="button" href="form.html"><button  class="buton"> Account</button></a>
+            <a class="button" href=""><button class="buton" onclick="account()">
+                    Account</button></a>
 
         </div>
     </nav>
+
+     <!--create user -->
+
     <div class="container">
         <div class="d-flex mb-3">
             <div id="users" class="me-auto p-2">
                 <h2>Users
             </div>
             <div class="p-2 bd-highlight">
-                <button type="button" class="btn btn-secondary" id="create" onclick="showUserCreateBox()"
-                    onclick="validateUserCreate()"><i class="fas fa-user-plus"></i></button>
+                <button type="button" class="btn btn-secondary" id="create" onclick="showUserCreateBox()"><i
+                        class="fas fa-user-plus"></i></button>
             </div>
         </div>
+
+         <!--table--> 
 
         <div class="table-responsive">
             <table class="table">
@@ -71,6 +110,7 @@
             </table>
         </div>
     </div>
+
 
 
     <script src="index.js"></script>

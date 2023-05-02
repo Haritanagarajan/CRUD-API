@@ -38,8 +38,10 @@ function loadTable() {
 
 loadTable();
 
+//create form modal
+
 function showUserCreateBox() {
-    //https://sweetalert2.github.io/v9.html
+
     Swal.fire({
         title: "Create user",
         customClass: {
@@ -81,9 +83,27 @@ function showUserCreateBox() {
 
         preConfirm: async () => {
             const form = document.getElementById('myform');
+            const UserName = document.getElementById("UserName").value;
+            const ContactNo = document.getElementById("ContactNo").value;
+            const EmailID = document.getElementById("EmailID").value;
+            const EmailIDRegex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+            const UserNameRegex = /^[a-zA-Z\- ]{3,50}$/;
+            const ContactNoregex = /^[0-9]{10}$/;
             if (!form.checkValidity()) {
                 Swal.showValidationMessage('Please fill out all required fields.');
                 return;
+            }
+            else if (!UserNameRegex.test(UserName)) {
+                Swal.showValidationMessage("UserName should contain atleast 3 characters");
+            }
+            else if (!ContactNoregex.test(ContactNo)) {
+                Swal.showValidationMessage("Contact NUmber should contain 10 numbers");
+            }
+            else if (!EmailIDRegex.test(EmailID)) {
+                Swal.showValidationMessage("Please enter the correct email format");
+            }
+            else {
+                alert("GO TO NEXT STEP")
             }
             try {
                 userCreate();
@@ -97,7 +117,8 @@ function showUserCreateBox() {
                 Swal.fire({
                     icon: "error",
                     title: "Error",
-                    text: error.message
+                    text: error.message,
+                    timer: 1500
                 });
             }
 
@@ -108,10 +129,9 @@ function showUserCreateBox() {
 
 
 
-
+//usercreate function
 
 function userCreate() {
-    // const id = document.getElementById("id").value;
     const UserName = document.getElementById("UserName").value;
     const Age = document.getElementById("Age").value;
     const Sex = document.getElementById("Sex").value;
@@ -123,7 +143,7 @@ function userCreate() {
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhttp.send(
         JSON.stringify({
-            // id: id,
+
             UserName: UserName,
             Age: Age,
             Sex: Sex,
@@ -141,6 +161,8 @@ function userCreate() {
     };
 }
 
+//post method for editing
+
 function showUserEditBox(id) {
     console.log(id);
     const xhttp = new XMLHttpRequest();
@@ -149,7 +171,7 @@ function showUserEditBox(id) {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             const objects = JSON.parse(this.responseText);
-            //const user = objects["objects"];
+    
             console.log(objects);
             Swal.fire({
                 title: "Edit User",
@@ -197,7 +219,7 @@ function showUserEditBox(id) {
 }
 
 function userEdit(id) {
-    // const id=document.getElementById("id").value
+   
     const UserName = document.getElementById("UserName").value;
     const Age = document.getElementById("Age").value;
     const Sex = document.getElementById("Sex").value;
@@ -210,7 +232,7 @@ function userEdit(id) {
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhttp.send(
         JSON.stringify({
-            //id:id
+     
             UserName: UserName,
             Age: Age,
             Sex: Sex,
@@ -228,6 +250,7 @@ function userEdit(id) {
     };
 }
 
+//delete method for deleteing the fields
 
 function userDelete(id) {
     console.log(id);
