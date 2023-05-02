@@ -42,6 +42,9 @@ function showUserCreateBox() {
     //https://sweetalert2.github.io/v9.html
     Swal.fire({
         title: "Create user",
+        customClass: {
+            popup: 'red-popup',
+          },
         html:
             '<div class="swal2-row">' +
             '<input id="id" type="hidden" class="swal2-input">' +
@@ -60,8 +63,8 @@ function showUserCreateBox() {
 
             '<div class="swal2-row">' +
             '<label for="Sex">Sex</label>' +
-            '<input id="Sex" name="Sex" class="swal2-input" type="radio" placeholder="Sex" value="Male">male' +
-            '<input id="Sex" name="Sex" class="swal2-input" type="radio" placeholder="Sex" value="Female">female' +
+            '<input id="Sex" name="Sex" class="swal2-input" type="radio" placeholder="Sex" value="Male">Male' +
+            '<input id="Sex" name="Sex" class="swal2-input" type="radio" placeholder="Sex" value="Female">Female' +
             "</div>" +
 
             '<div class="swal2-row">' +
@@ -71,7 +74,7 @@ function showUserCreateBox() {
 
             '<div class="swal2-row">' +
             '<label for="EmailID">EmailID</label>' +
-            '<input id="EmailID" class="swal2-input" placeholder="EmailID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$">' +
+            '<input id="EmailID" class="swal2-input" placeholder="EmailID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" >' +
             "</div>",
 
 
@@ -128,6 +131,9 @@ function showUserEditBox(id) {
             console.log(objects);
             Swal.fire({
                 title: "Edit User",
+                customClass: {
+                    popup: 'red-popup',
+                  },
                 html:
 
                     '<div class="swal2-row">' +
@@ -146,8 +152,8 @@ function showUserEditBox(id) {
 
                     '<div class="swal2-row">' +
                     '<label for="Sex">Sex</label>' +
-                    '<input id="Sex"  class="swal2-input" type="radio" placeholder="Sex" value="Male" objects["Sex"] >' +
-                    '<input id="Sex" class="swal2-input" type="radio" placeholder="Sex" value="Female" objects["Sex"] >' +
+                    '<input id="Sex"  class="swal2-input" type="radio" placeholder="Sex" value="Male" objects["Sex"] >Male' +
+                    '<input id="Sex" class="swal2-input" type="radio" placeholder="Sex" value="Female" objects["Sex"] >Female' +
                     "</div>" +
 
                     '<div class="swal2-row">' +
