@@ -44,8 +44,9 @@ function showUserCreateBox() {
         title: "Create user",
         customClass: {
             popup: 'red-popup',
-          },
+        },
         html:
+            '<form id="myform"  class="was-validated">' +
             '<div class="swal2-row">' +
             '<input id="id" type="hidden" class="swal2-input">' +
             "</div>" +
@@ -63,8 +64,8 @@ function showUserCreateBox() {
 
             '<div class="swal2-row">' +
             '<label for="Sex">Sex</label>' +
-            '<input id="Sex" name="Sex" class="swal2-input" type="radio" placeholder="Sex" value="Male">Male' +
-            '<input id="Sex" name="Sex" class="swal2-input" type="radio" placeholder="Sex" value="Female">Female' +
+            '<input id="Sex" name="Sex" class="swal2-input" type="radio" placeholder="Sex" value="Male" required>Male' +
+            '<input id="Sex" name="Sex" class="swal2-input" type="radio" placeholder="Sex" value="Female" required>Female' +
             "</div>" +
 
             '<div class="swal2-row">' +
@@ -74,17 +75,38 @@ function showUserCreateBox() {
 
             '<div class="swal2-row">' +
             '<label for="EmailID">EmailID</label>' +
-            '<input id="EmailID" class="swal2-input" placeholder="EmailID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" >' +
+            '<input id="EmailID" class="swal2-input" placeholder="EmailID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" required>' +
             "</div>",
 
 
-        preConfirm: () => {
+        preConfirm: async () => {
+            const form = document.getElementById('myform');
+            if (!form.checkValidity()) {
+                Swal.showValidationMessage('Please fill out all required fields.');
+                return;
+            }
+            try {
+                userCreate();
+                Swal.fire({
+                    icon: "success",
+                    title: "project added successfully",//for success message
 
-            userCreate();
+                });
+                loadTable();
+            } catch (error) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: error.message
+                });
+            }
 
         },
     });
 }
+
+
+
 
 
 
@@ -133,7 +155,7 @@ function showUserEditBox(id) {
                 title: "Edit User",
                 customClass: {
                     popup: 'red-popup',
-                  },
+                },
                 html:
 
                     '<div class="swal2-row">' +
