@@ -102,9 +102,6 @@ function showUserCreateBox() {
             else if (!EmailIDRegex.test(EmailID)) {
                 Swal.showValidationMessage("Please enter the correct email format");
             }
-            else {
-                alert("GO TO NEXT STEP")
-            }
             try {
                 userCreate();
                 Swal.fire({
@@ -118,7 +115,6 @@ function showUserCreateBox() {
                     icon: "error",
                     title: "Error",
                     text: error.message,
-                    timer: 1500
                 });
             }
 
@@ -171,7 +167,7 @@ function showUserEditBox(id) {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             const objects = JSON.parse(this.responseText);
-    
+
             console.log(objects);
             Swal.fire({
                 title: "Edit User",
@@ -219,7 +215,7 @@ function showUserEditBox(id) {
 }
 
 function userEdit(id) {
-   
+
     const UserName = document.getElementById("UserName").value;
     const Age = document.getElementById("Age").value;
     const Sex = document.getElementById("Sex").value;
@@ -232,7 +228,7 @@ function userEdit(id) {
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhttp.send(
         JSON.stringify({
-     
+
             UserName: UserName,
             Age: Age,
             Sex: Sex,
@@ -260,6 +256,9 @@ function userDelete(id) {
 
     Swal.fire({
         title: "Are you sure?",
+        customClass: {
+            popup: 'red-popup',
+        },
         text: "You won't be able to revert this!",
         type: "warning",
         showCancelButton: true,
