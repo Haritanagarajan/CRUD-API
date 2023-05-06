@@ -13,14 +13,8 @@
     <title>CRUD API</title>
 
     <link href="index.css" rel="stylesheet">
-    <!-- <script>
-        document.getElementById("search-btn").addEventListener("click", function () {
 
-            var searchTerm = document.querySelector(".navbar-search input").value;
-
-            console.log("Searching for: " + searchTerm);
-        });
-    </script> -->
+    <!--ACCOUNT LOGIN-->
 
     <script>
 
@@ -28,8 +22,8 @@
             Swal.fire({
                 title: 'Account',
                 customClass: {
-                        popup: 'red-popup',
-                    },
+                    popup: 'red-popup',
+                },
                 html:
                     '<input id="username" class="swal2-input" placeholder="Username"> ' +
                     '<input id="password" type="password" class="swal2-input" placeholder="Password">',
@@ -53,6 +47,8 @@
         }
 
     </script>
+
+    <!--PROFILE-->
 
     <script>
         function profiles() {
@@ -84,7 +80,9 @@
 </head>
 
 <body>
+
     <!--logo-->
+
     <nav id="log" class="navbar navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img id="logo" src="./assets/images/twitter-removebg-preview.png"
@@ -100,6 +98,9 @@
             </ul>
         </div>
     </nav>
+
+    <!--TWITTER TWEET-->
+
     <div id="block">
         <blockquote width="350px" height="10px" class="twitter-tweet" data-lang="en" data-theme="light">
             <p lang="en" dir="ltr">SO CUUUTE <a id="tweete"
@@ -128,7 +129,7 @@
     </div>
 
 
-    <!--create user -->
+    <!--CREATE USER -->
 
     <div class="container">
         <div class="d-flex mb-3">
@@ -141,6 +142,7 @@
             </div>
         </div>
 
+        <!--TABLE INFO-->
 
         <div class="card">
             <div class="card-body">
@@ -148,7 +150,6 @@
                     <table class="table">
                         <thead>
                             <tr>
-
                                 <th scope="col">ID</th>
                                 <th scope="col">UserName</th>
                                 <th scope="col">Age</th>
@@ -170,11 +171,15 @@
         </div>
     </div>
 
+    <!--TWITTER TWEET MESSAGE-->
+
     <form id="message" action="https://twitter.com/intent/tweet" method="GET">
         <input type="text" name="text" placeholder="Type your message or feedback here...">
         <input type="hidden" name="via" value="your_twitter_handle">
         <input type="submit" value="Tweet">
     </form>
+
+    <!--FOOTER-->
 
     <footer>
         <a href="https://twitter.com/your_twitter_handle">Follow us on Twitter</a>
@@ -183,6 +188,7 @@
 
 
 
+    <!--LINKS-->
 
     <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>

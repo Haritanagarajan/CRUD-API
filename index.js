@@ -38,7 +38,7 @@ function loadTable() {
 
 loadTable();
 
-//create form modal
+//CREATE MODAL USING SWEET ALERT
 
 function showUserCreateBox() {
 
@@ -125,7 +125,7 @@ function showUserCreateBox() {
 
 
 
-//usercreate function
+//GETTING DATA FROM USER AND CRAETING 
 
 function userCreate() {
     const UserName = document.getElementById("UserName").value;
@@ -157,7 +157,7 @@ function userCreate() {
     };
 }
 
-//post method for editing
+//EDIT MODAL USING SWEET ALERT
 
 function showUserEditBox(id) {
     console.log(id);
@@ -214,6 +214,8 @@ function showUserEditBox(id) {
     };
 }
 
+//GETTING DATA FROM USER FOR EDITING
+
 function userEdit(id) {
 
     const UserName = document.getElementById("UserName").value;
@@ -246,7 +248,7 @@ function userEdit(id) {
     };
 }
 
-//delete method for deleteing the fields
+//DELETE METHOD MODAL 
 
 function userDelete(id) {
     console.log(id);
