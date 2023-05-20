@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN PAGE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(228, 238, 242);
+        }
+
+        .container {
+            width: 900px;
+            margin-left: 300px;
+            margin-top: 200px;
+            height: 300px;
+            padding: 20px;
+            background-color: #479da3;
+            border-radius: 5px;
+            box-shadow: 0px 0px 20px rgb(3, 53, 73);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 95%;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000f12;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+
+        .btn:hover {
+            background-color: #154963;
+        }
+
+        .error-message {
+
+            color: red;
+            font-size: 12px;
+        }
+
+        .error-field {
+            border-color: red;
+        }
+    </style>
+
+    <script>
+
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var usernameError = document.getElementById("usernameError");
+            var passwordError = document.getElementById("passwordError");
+
+
+            // Clear previous error messages
+            usernameError.textContent = "";
+            passwordError.textContent = "";
+
+            // Validate username
+            if (username.trim() === "") {
+                usernameError.textContent = "Username is required";
+                isValid = false;
+            } else {
+                // Check username format using regular expression
+                var usernameRegex = /^[a-zA-Z0-9_]{5,15}$/;
+                if (!usernameRegex.test(username)) {
+                    usernameError.textContent = "Invalid username format";
+                    isValid = false;
+                }
+            }
+
+            // Validate password
+            if (password.trim() === "") {
+                passwordError.textContent = "Password is required";
+                isValid = false;
+            } else {
+                // Check password complexity using regular expression
+                var passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+                if (!passwordRegex.test(password)) {
+                    passwordError.textContent = "Invalid password format";
+                    isValid = false;
+                }
+            }
+
+            return isValid;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <!--LOGIN PAGE --->
+
+    <div class="container">
+        <h1>Twitter Login</h1>
+
+        <form onsubmit="return validateForm()" action="index.html">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                <span id="usernameError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <span id="passwordError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Log In" class="btn">
+            </div>
+        </form>
+    </div>
+
+
+</body>
+
+</html>

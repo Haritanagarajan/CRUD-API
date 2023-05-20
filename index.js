@@ -24,11 +24,11 @@ function loadTable() {
                 trHTML +=
                     '<td><button type="button" id="edit" class="btn btn-outline-secondary" onclick="showUserEditBox(' +
                     object["id"] +
-                    ')">Edit</button>';
+                    ')">edit</button>';
                 trHTML +=
                     '<button type="button" id="del" class="btn btn-outline-danger" onclick="userDelete(' +
                     object["id"] +
-                    ')">Del</button></td>';
+                    ')">del</button></td>';
                 trHTML += "</tr>";
             }
             document.getElementById("mytable").innerHTML = trHTML;
@@ -48,7 +48,7 @@ function showUserCreateBox() {
             popup: 'red-popup',
         },
         html:
-            '<form id="myform"  class="was-validated">' +
+            '<form id="myform"  class="is-validated">' +
             '<div class="swal2-row">' +
             '<input id="id" type="hidden" class="swal2-input">' +
             "</div>" +
@@ -79,22 +79,25 @@ function showUserCreateBox() {
             '<label for="EmailID">EmailID</label>' +
             '<input id="EmailID" class="swal2-input" placeholder="EmailID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" required>' +
             "</div>",
-
+        showCancelButton: true,
 
         preConfirm: async () => {
-            const form = document.getElementById('myform');
+
+            // const form = document.getElementById("myform");
             const UserName = document.getElementById("UserName").value;
+            const Age = document.getElementById("Age").value;
+            const Sex = document.getElementById("Sex").value.checked;
             const ContactNo = document.getElementById("ContactNo").value;
             const EmailID = document.getElementById("EmailID").value;
             const EmailIDRegex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
             const UserNameRegex = /^[a-zA-Z\- ]{3,50}$/;
             const ContactNoregex = /^[0-9]{10}$/;
-            if (!form.checkValidity()) {
-                Swal.showValidationMessage('Please fill out all required fields.');
-                return;
-            }
-            else if (!UserNameRegex.test(UserName)) {
+            const ageregex = /^[0-9]{2}$/;
+            if (!UserNameRegex.test(UserName)) {
                 Swal.showValidationMessage("UserName should contain atleast 3 characters");
+            }
+            else if (Sex == "null") {
+                Swal.showValidationMessage("please choose gender");
             }
             else if (!ContactNoregex.test(ContactNo)) {
                 Swal.showValidationMessage("Contact NUmber should contain 10 numbers");
@@ -102,27 +105,16 @@ function showUserCreateBox() {
             else if (!EmailIDRegex.test(EmailID)) {
                 Swal.showValidationMessage("Please enter the correct email format");
             }
-            try {
+            else if (!ageregex.test(Age)) {
+                Swal.showValidationMessage("enter the age in numerics");
+            }
+            else {
                 userCreate();
-                Swal.fire({
-                    icon: "success",
-                    title: "project added successfully",//for success message
-
-                });
-                loadTable();
-            } catch (error) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Error",
-                    text: error.message,
-                });
             }
 
         },
     });
 }
-
-
 
 
 //GETTING DATA FROM USER AND CRAETING 
@@ -182,32 +174,60 @@ function showUserEditBox(id) {
 
                     '<div class="swal2-row">' +
                     '<label for="UserName">UserName</label>' +
-                    '<input id="UserName" class="swal2-input" placeholder="UserName" objects["UserName"] >' +
+                    '<input id="UserName" class="swal2-input" placeholder="UserName"  value="' + objects["UserName"] + '">' +
                     "</div>" +
 
                     '<div class="swal2-row">' +
                     '<label for="Age">Age</label>' +
-                    '<input id="Age" class="swal2-input" placeholder="Age">' +
+                    '<input id="Age" class="swal2-input" placeholder="Age" value="' + objects["Age"] + ' ">' +
                     "</div>" +
 
                     '<div class="swal2-row">' +
                     '<label for="Sex">Sex</label>' +
-                    '<input id="Sex"  class="swal2-input" type="radio" placeholder="Sex" value="Male" objects["Sex"] >Male' +
-                    '<input id="Sex" class="swal2-input" type="radio" placeholder="Sex" value="Female" objects["Sex"] >Female' +
+                    '<input id="Sex"  class="swal2-input" type="radio" placeholder="Sex" value="Male" ' + objects["Sex"] + ' ">Male' +
+                    '<input id="Sex" class="swal2-input" type="radio" placeholder="Sex" value="Female" ' + objects["Sex"] + ' ">Female' +
                     "</div>" +
 
                     '<div class="swal2-row">' +
                     '<label for="ContactNo">ContactNo</label>' +
-                    '<input id="ContactNo" class="swal2-input" placeholder="ContactNo" objects["ContactNo"]>' +
+                    '<input id="ContactNo" class="swal2-input" placeholder="ContactNo" value="' + objects["ContactNo"] + ' ">' +
                     "</div>" +
 
                     '<div class="swal2-row">' +
                     '<label for="EmailID">EmailID</label>' +
-                    '<input id="EmailID" class="swal2-input" placeholder="EmailID" objects["EmailID"] >' +
+                    '<input id="EmailID" class="swal2-input" placeholder="EmailID" value=" ' + objects["EmailID"] + ' " >' +
                     "</div>",
-
+                showCancelButton: true,
                 preConfirm: () => {
-                    userEdit(id);
+                    const UserName = document.getElementById("UserName").value;
+                    const Age = document.getElementById("Age").value;
+                    const Sex = document.getElementById("Sex").value.checked;
+                    const ContactNo = document.getElementById("ContactNo").value;
+                    const EmailID = document.getElementById("EmailID").value;
+                    const EmailIDRegex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+                    const UserNameRegex = /^[a-zA-Z\- ]{3,50}$/;
+                    const ContactNoregex = /^[0-9]{10}$/;
+                    const ageregex = /^[0-9]{2}$/;
+                    if (!UserNameRegex.test(UserName)) {
+                        Swal.showValidationMessage("UserName should contain atleast 3 characters");
+                    }
+                    else if (Sex == "null") {
+                        Swal.showValidationMessage("please choose gender");
+                    }
+                    else if (!ContactNoregex.test(ContactNo)) {
+                        Swal.showValidationMessage("Contact NUmber should contain 10 numbers");
+                    }
+                    else if (!EmailIDRegex.test(EmailID)) {
+                        Swal.showValidationMessage("Please enter the correct email format");
+                    }
+                    else if (!ageregex.test(Age)) {
+                        Swal.showValidationMessage("enter the age in numerics");
+                    }
+                    else {
+                        userEdit(id);
+                    }
+
+
                 },
             });
         }

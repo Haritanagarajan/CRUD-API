@@ -17,7 +17,7 @@ body {
   font-weight: 600;
   box-shadow: 3px 3px 4px rgb(14, 107, 160);
   background-color: #3c565b;
-  margin-left:-60px;
+  margin-left: -60px;
 
 }
 
@@ -48,14 +48,14 @@ body {
 #del {
   margin-left: 10px;
   font-weight: 600;
-    box-shadow: 3px 3px 4px rgb(14, 107, 160);
+  box-shadow: 3px 3px 4px rgb(14, 107, 160);
   background-color: #3c565b;
   border: none;
 
 }
 
 #create {
-  border-radius:100px;
+  border-radius: 100px;
   font-weight: 600;
   margin-left: -125px;
   margin-top: 59px;
@@ -85,15 +85,15 @@ th {
 
 
 /* Style the table rows */
-.table tbody td th{
+.table tbody td th {
   text-align: center;
 }
 
 
 /* Set the background color for table rows when hovered */
 .table tbody tr:hover {
-  background-color:transparent;
-  
+  background-color: transparent;
+
 }
 
 /* Style the Options column */
@@ -160,7 +160,7 @@ th {
 }
 
 .red-popup {
-  background-color:white;
+  background-color: white;
   color: white;
   box-shadow: 1px 1px 4px rgb(14, 97, 156);
 }
@@ -257,14 +257,14 @@ a:hover {
   background-color: rgb(247, 228, 228);
   color: white;
   border-color: red;
-  box-shadow: 6px 4px 8px rgb(13, 124, 168);
+  box-shadow: 6px 4px 8px rgb(5, 55, 74);
 }
 
 .red-popup .swal2-confirm {
   background-color: black;
   color: hsl(0, 14%, 95%);
   border-color: black;
-  box-shadow: 6px 4px 8px rgb(13, 124, 168);
+  box-shadow: 6px 4px 8px  rgb(5, 55, 74);
 }
 
 .red-popup .swal2-confirm:hover {
@@ -303,60 +303,72 @@ a:hover {
   margin-left: 1100px;
 }
 
-  .card{
-    background-color: #4CA1AF;
-    box-shadow: 1px 1px 10px black;
-  }
+#card1 {
+  background-color: #4CA1AF;
+  box-shadow: 1px 1px 30px black;
+}
 
-  footer {
-    background-color: #f0f3f4;
-    color: #657786;
-    font-size: 14px;
-    padding: 20px;
-    text-align: center;
-  }
-  #message {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-    margin-top: 70px;
-  
-  }
-  
-  input[type="text"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 80%;
-    margin-right: 10px;
-    box-shadow: 3px 4px 10px rgb(13, 124, 168);
-  }
-  
-  input[type="submit"] {
-    background-color: #085a5e;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #071217;
-  
-  }
-  
-  
-  footer a {
-    color: #1da1f2;
-    text-decoration: none;
-  }
-  
-  footer a:hover {
-    text-decoration: underline;
-  }
-  
-  
+footer {
+  background-color: #f0f3f4;
+  color: #657786;
+  font-size: 14px;
+  padding: 20px;
+  text-align: center;
+}
+
+#message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  margin-top: 70px;
+
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 80%;
+  margin-right: 10px;
+  box-shadow: 3px 4px 10px rgb(13, 124, 168);
+}
+
+input[type="submit"] {
+  background-color: #085a5e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #071217;
+
+}
+
+.twitter-timeline {
+  margin-top: 6300px;
+  margin-left: 350px;
+  background-color: rgb(13, 124, 168);
+  box-shadow: 3px 4px 50px rgb(3, 41, 56);
+
+}
+
+
+footer a {
+  color: #1da1f2;
+  text-decoration: none;
+}
+
+footer {
+  margin-top: 30px;
+  height: 80px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

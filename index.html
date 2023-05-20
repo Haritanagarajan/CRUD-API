@@ -48,14 +48,36 @@
 
     </script>
 
-    <!--PROFILE-->
+    <!--RENDERIG THE TWITTER TIMELINE WIDGET-->
 
     <script>
+
+        window.twttr = (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+
+            t._e = [];
+            t.ready = function (f) {
+                t._e.push(f);
+            };
+
+            return t;
+        }(document, "script", "twitter-wjs"));
+
+    </script>
+
+    <script>
+
         function profiles() {
             const userProfile = {
                 name: '<i>Harita Nagarajan<i>',
                 email: '<i>30harita2002@example.com</i>',
-                avatarUrl: 'assets/images/users-solid.svg'
+                avatarUrl: 'https://www.melivecode.com/users/4.png'
             };
 
             const profil = document.getElementById('profile');
@@ -67,16 +89,19 @@
                     },
                     html: `
             <div>
-              <img width="50px" height="80px" src="${userProfile.avatarUrl}" alt="${userProfile.name}">
-              <h2>${userProfile.name}</h2>
-              <p>Email: ${userProfile.email}</p>
+                <img width="50px" height="80px" src="${userProfile.avatarUrl}" alt="${userProfile.name}">
+                <h2>${userProfile.name}</h2>
+                <p>Email: ${userProfile.email}</p>
             </div>
-          `,
+            `,
                     confirmButtonText: 'Close',
                 });
             });
         }
+
     </script>
+
+
 </head>
 
 <body>
@@ -91,7 +116,7 @@
                 <li><a href="https://twitter.com/
                     ">Home</a></li>
                 <li><a href="#users">Users</a></li>
-                <li><a href="#block">Messages</a></li>
+                <li><a href="#message">Messages</a></li>
                 <li><a href="#"><button id="profile" class="btn" onclick="profiles()">Profile</button></a></li>
                 <li><a href="https://twitter.com/explore">More</a></li>
                 <li><a href="#"><button id="account" class="btn" onclick="account()">Account</button></a></li>
@@ -144,7 +169,7 @@
 
         <!--TABLE INFO-->
 
-        <div class="card">
+        <div class="card" id="card1">
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table">
@@ -179,6 +204,12 @@
         <input type="submit" value="Tweet">
     </form>
 
+    <!-- Embedding a timeline -->
+
+            <a class="twitter-timeline" id="twittimeline" href="https://twitter.com/OpenAI" data-tweet-limit="1"
+                data-width="800" data-height="400">Tweets by OpenAI</a>
+
+
     <!--FOOTER-->
 
     <footer>
@@ -195,6 +226,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
         integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
