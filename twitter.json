@@ -1,0 +1,24 @@
+{
+    "twitter": [
+      {
+        "id":1,
+        "tweetname": "INDIA",
+      
+
+        "image": "images\\india.png"
+
+      },
+      {
+        "id":2,
+        "tweetname": "ITALY",
+        
+
+        "image": "images\\italy.png"
+      },
+      {
+        "id":3,
+        "tweetname": "UNITED KINGDOM",
+        
+
+        "image": "images\\uk.png"
+      }]}

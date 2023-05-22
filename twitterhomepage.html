@@ -5,15 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
     <style>
         body {
             background-color: #f8f9fa;
+            overflow-x: hidden;
+
         }
 
         .navbar {
             background-color: #f8f9fa;
             font-size: larger;
             width: 300px;
+            height: 100%;
+
         }
 
         .navbar-brand {
@@ -48,6 +56,8 @@
         #twitterlogo:hover {
             background-color: rgb(232, 220, 220);
             border-radius: 15px;
+            width: 35px;
+            transform: scale(1.1);
 
         }
 
@@ -55,7 +65,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 20px 0;
+            margin-top: 30px;
+
 
 
         }
@@ -68,7 +79,7 @@
             height: 40px;
             color: white;
             font-weight: bold;
-            margin-left:80px;
+            margin-left: 80px;
         }
 
         #tweetbtn:hover {
@@ -77,6 +88,13 @@
 
         #userdetails {
             margin-left: 190px;
+            margin-top: 30px;
+            z-index: -1;
+
+        }
+
+        #userdetails:hover {
+            transform: scale(1.1);
         }
 
         #H {
@@ -89,30 +107,202 @@
             align-items: center;
             border-radius: 20px;
             padding-left: 9px;
+            z-index: -1;
+
         }
 
         #harita {
             margin-top: -55px;
             font-weight: 500;
+            z-index: -1;
+
         }
 
         #dots {
-            margin-top: -70px;
-            margin-left: 140px;
+            margin-top: -90px;
+            margin-left: 130px;
+            color: black;
             font-weight: 700;
-            font-size: large;
+            z-index: -1;
+
         }
 
         #homepage {
-         margin-top:-400px;
+            height: 100%;
+            background-color: rgb(240, 241, 241);
+            width: 600px;
+            margin-left: 400px;
+
+        }
+
+        #dot {
+            color: black;
+            text-decoration: none;
+        }
+
+        .container {
+            margin-left: 50px;
+            width: 700px;
+        }
+
+        .block {
+            background-color: #ebebed;
+            width: 600px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin-left: -80px;
+            padding-left: 150px;
+
+        }
+
+        /* Adjust the width of the offcanvas menu */
+        .offcanvas {
+            width: 300px;
+        }
+
+        #offcanvasRight {
+            margin-top: -7120px;
+            margin-left: 1000px;
+            width: 400px;
+            height: 700px;
+            background-color: #f8f9fa;
+            padding-left: 56px;
+        }
+
+        #openbtn {
+
+            width: 200px;
+            padding-left: 30px;
+            margin-top: -800px;
+            margin-left: 1130px;
+            border-radius: 30px;
+
+
+        }
+
+        #opentweets {
+            color: white;
+            text-decoration: none;
+        }
+
+        #foryou {
+            margin-left: 130px;
+            font-size: large;
+            font-weight: 600;
+            padding-left: 40px;
+        }
+
+        #profile {
+            border: none;
+            background-color: #f8f9fa;
+        }
+
+        #foryou:hover {
+            background-color: #d3d3d4;
+            width: 150px;
+            height: 40px;
+            border-radius: 25px;
 
         }
 
         .left {
-          float: left;
-          margin-top:10px;
+            float: left;
+            margin-top: -20px;
+            position: sticky;
+
+        }
+
+        .nav {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
         }
     </style>
+
+    <script>
+        // Handle form submission for search
+        $('#ff').submit(function (e) {
+            e.preventDefault();
+            var searchQuery = $('#searchInput').val();
+            // Process the search query here
+        });
+
+
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+
+        // Sample data for demonstration
+        const tweets = [
+            { author: 'John Doe', content: 'Lorem ipsum dolor sit amet' },
+            { author: 'Jane Smith', content: 'Consectetur adipiscing elit' },
+            { author: 'Mark Johnson', content: 'Fusce tincidunt auctor efficitur' },
+            { author: 'Emily Williams', content: 'Sed rutrum gravida erat' },
+            { author: 'David Brown', content: 'Morbi feugiat sem vel urna venenatis' },
+        ];
+    </script>
+
+    <script>
+        // Function to perform search
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const filteredTweets = tweets.filter(tweet =>
+                tweet.author.toLowerCase().includes(searchTerm) ||
+                tweet.content.toLowerCase().includes(searchTerm)
+            );
+
+            displayResults(filteredTweets);
+        }
+
+        // Function to display search results
+        function displayResults(results) {
+            searchResults.innerHTML = '';
+
+            if (results.length === 0) {
+                const noResults = document.createElement('li');
+                noResults.textContent = 'No results found.';
+                searchResults.appendChild(noResults);
+            } else {
+                results.forEach(tweet => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<strong>${tweet.author}</strong>: ${tweet.content}`;
+                    searchResults.appendChild(listItem);
+                });
+            }
+        }
+
+        // Event listener for search input
+        searchInput.addEventListener('input', performSearch);
+
+    </script>
+
+    <script>
+        function profiles() {
+            const userProfile = {
+                name: '<i>Harita Nagarajan<i>',
+                email: '<i>30harita2002@example.com</i>',
+                avatarUrl: 'https://www.melivecode.com/users/4.png'
+            };
+
+            const profil = document.getElementById('profile');
+            profil.addEventListener('click', () => {
+                Swal.fire({
+                    title: 'Profile',
+                    customClass: {
+                        popup: 'red-popup',
+                    },
+                    html: `
+            <div>
+                <img width="50px" height="80px" src="${userProfile.avatarUrl}" alt="${userProfile.name}">
+                <h2>${userProfile.name}</h2>
+                <p>Email: ${userProfile.email}</p>
+            </div>
+            `,
+                    confirmButtonText: 'Close',
+                });
+            });
+        }
+
+    </script>
     <title>Bootstrap Left Navbar</title>
 </head>
 
@@ -133,29 +323,37 @@
                             Home</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link1" class="nav-link" href="#"><a id="link" href="" class="fa fa-compass"></a>
+                        <a id="link1" class="nav-link"
+                            href="https://business.twitter.com/en/blog/how-to-increase-twitter-followers.html"><a
+                                id="link" href="" class="fa fa-compass"></a>
                             Explore</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link1" class="nav-link" href="#"><a id="link" href="" class="fa fa-bell"></a>
+                        <a id="link1" class="nav-link" href="https://twitter.com/notifications"><a id="link" href=""
+                                class="fa fa-bell"></a>
                             Notifications</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link1" class="nav-link" href="#"><a id="link" class="fa fa-list"></a> Messages</a>
+                        <a id="link1" class="nav-link" href="https://twitter.com/messages"><a id="link"
+                                class="fa fa-list"></a> Messages</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link1" class="nav-link" href="#"><a id="link" href="" class="fa fa-bookmark"></a>
+                        <a id="link1" class="nav-link" href="https://twitter.com/i/bookmarks"><a id="link" href=""
+                                class="fa fa-bookmark"></a>
                             Bookmarks</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link1" class="nav-link" href="#"><a id="link" href="" class="fa fa-twitter"></a>
+                        <a id="link1" class="nav-link" href="index.html"><a id="link" href="" class="fa fa-twitter"></a>
                             Twitter</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><a id="link" href="" class="fa fa-user"></a> Profile</a>
+                        <a class="nav-link" href="#"><a id="link" href="" class="fa fa-user"></a><button id="profile"
+                                onclick="profiles()">Profile</button> </a>
                     </li>
                     <li class="nav-item">
-                        <a id="link1" class="nav-link" href="#"><a id="link" href="" class="fa fa-bars"></a> More</a>
+                        <a id="link1" class="nav-link"
+                            href="https://business.twitter.com/en/blog/how-to-increase-twitter-followers.html"><a
+                                id="link" href="" class="fa fa-bars"></a> More</a>
                     </li>
                 </ul>
             </div>
@@ -163,37 +361,238 @@
 
 
         <form id="tweet" action="https://twitter.com/intent/tweet" method="GET">
-            <!-- <input type="text" name="text" placeholder="Type your message or feedback here...">
-        <input type="hidden" name="via" value="your_twitter_handle"> -->
             <input type="submit" id="tweetbtn" value="Tweet">
         </form>
 
         <div id="userdetails">
             <p id="H">H</p>
             <p id="harita">Harita N<br>@haritanagaraj</p>
-            <a id="dots" href="">...</a>
+            <p id="dots"><a id="dot" href="twitterlogin.html">...</a></p>
 
         </div>
 
     </div>
 
-        <div id="homepage" class="container mt-4">
-            <h2>Home</h2>
-            <div class="tweets">
-                <div class="tweet">
-                    <h5>Tweet 1</h5>
-                    <p>Content of tweet 1</p>
-                </div>
-                <div class="tweet">
-                    <h5>Tweet 2</h5>
-                    <p>Content of tweet 2</p>
-                </div>
-                <div class="tweet">
-                    <h5>Tweet 3</h5>
-                    <p>Content of tweet 3</p>
-                </div>
+    <div id="homepage" class="container mt-4">
+        <h2>Home</h2>
+        <p id="foryou">for you</p>
+        <!-- <main>
+            <section id="twitter"><br>
+                <h2 style="padding-left: 0px;" id="h2"><span>T</span>WEETS</h2><br>
+                <div style="padding-left: 350px;" id="specials-container"></div>
+            </section>
+    </div>
+    </div>
+   </main> -->
+
+
+        <main>
+
+            <div id="userdetails">
+                <p id="H">H</p>
+                <p id="harita">Harita N<br>@haritanagaraj</p>
+                <p id="dots"><a id="dot" href="twitterlogin.html">...</a></p>
+
             </div>
+
+            <!-- TWEETS-->
+
+            <div class="container">
+                <div id="card1" class="block">
+                    <blockquote width="350px" class="twitter-tweet">
+                        <p lang="en" dir="ltr">HEAT STEAL ANOTHER ONE IN BOSTON‼️ <a
+                                href="https://t.co/1pnIiOAYRJ">pic.twitter.com/1pnIiOAYRJ</a></p>&mdash; ESPN (@espn) <a
+                            href="https://twitter.com/espn/status/1659754920331866113?ref_src=twsrc%5Etfw">May 20,
+                            2023</a>
+                    </blockquote>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+
+
+
+                <div id="card2" class="block">
+                    <blockquote width="350px" class="twitter-tweet">
+                        <p lang="en" dir="ltr">Fly it like you stole it <br><br>📹: f22demoteam <a
+                                href="https://t.co/brwvON28Ry">pic.twitter.com/brwvON28Ry</a></p>&mdash; Aviation
+                        (@ilove_aviation) <a
+                            href="https://twitter.com/ilove_aviation/status/1659844728228118528?ref_src=twsrc%5Etfw">May
+                            20,
+                            2023</a>
+                    </blockquote>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+
+
+                <div id="card3" class="block">
+                    <blockquote width="350px" class="twitter-tweet">
+                        <p lang="en" dir="ltr">NO. 8 SEED HEAT GO UP 2-0 IN BOSTON 🔥 <a
+                                href="https://t.co/mG8kta985N">pic.twitter.com/mG8kta985N</a></p>&mdash; Bleacher Report
+                        (@BleacherReport) <a
+                            href="https://twitter.com/BleacherReport/status/1659755021276258304?ref_src=twsrc%5Etfw">May
+                            20,
+                            2023</a>
+                    </blockquote>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+
+
+                <div id="card4" class="block">
+                    <blockquote width="350px" class="twitter-tweet">
+                        <p lang="en" dir="ltr">Bear living its best life.. 😊<br><br>🎥 IG: ecojack <a
+                                href="https://t.co/69SU2R9uhy">pic.twitter.com/69SU2R9uhy</a></p>&mdash; Buitengebieden
+                        (@buitengebieden) <a
+                            href="https://twitter.com/buitengebieden/status/1659845156923645953?ref_src=twsrc%5Etfw">May
+                            20,
+                            2023</a>
+                    </blockquote>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+
+
+
+                <div id="card5" class="block">
+                    <blockquote width="350px" class="twitter-tweet">
+                        <p lang="en" dir="ltr">creature comfort <a
+                                href="https://t.co/EYZSb2gJT7">pic.twitter.com/EYZSb2gJT7</a></p>&mdash; Dont Show Your
+                        Cat
+                        (@DontShowYourCat) <a
+                            href="https://twitter.com/DontShowYourCat/status/1659714904075431936?ref_src=twsrc%5Etfw">May
+                            20, 2023</a>
+                    </blockquote>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+
+                <div id="card6" class="block">
+                    <blockquote width="350px" class="twitter-tweet">
+                        <p lang="en" dir="ltr">Mood <a href="https://t.co/e3yzLKg01O">pic.twitter.com/e3yzLKg01O</a></p>
+                        &mdash; cat with confusing auras (@cat_auras) <a
+                            href="https://twitter.com/cat_auras/status/1659683778355240961?ref_src=twsrc%5Etfw">May 19,
+                            2023</a>
+                    </blockquote>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+
+                <div id="card7" class="block">
+                    <blockquote width="350px" class="twitter-tweet">
+                        <p lang="en" dir="ltr">STOP BLOCKING TRAFFIC! <a
+                                href="https://t.co/1GkVVGkWIi">pic.twitter.com/1GkVVGkWIi</a></p>&mdash; Clown World ™
+                        🤡
+                        (@ClownWorld_) <a
+                            href="https://twitter.com/ClownWorld_/status/1659583000873697288?ref_src=twsrc%5Etfw">May
+                            19,
+                            2023</a>
+                    </blockquote>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+
+                <div id="card8" class="block">
+                    <blockquote width="350px" class="twitter-tweet">
+                        <p lang="en" dir="ltr">The cat train.. 😅 <a
+                                href="https://t.co/AogmspDEnh">pic.twitter.com/AogmspDEnh</a></p>&mdash; Buitengebieden
+                        (@buitengebieden) <a
+                            href="https://twitter.com/buitengebieden/status/1659663208666243073?ref_src=twsrc%5Etfw">May
+                            19,
+                            2023</a>
+                    </blockquote>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+
+
+                <div id="card9" class="block">
+                    <blockquote width="350px" class="twitter-tweet">
+                        <p lang="en" dir="ltr">This is the year we learn to love the dandelions. <a
+                                href="https://t.co/nz1p6pSopr">pic.twitter.com/nz1p6pSopr</a></p>&mdash; Hank Green
+                        (@hankgreen) <a
+                            href="https://twitter.com/hankgreen/status/1659729741279268865?ref_src=twsrc%5Etfw">May 20,
+                            2023</a>
+                    </blockquote>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+
+                <div id="card10" class="block">
+
+                    <blockquote width="350px" class="twitter-tweet">
+                        <p lang="en" dir="ltr">João Félix replying to “Newcastle only club willing to pay €100m” for him
+                            on
+                            Instagram ⚪️⤵️🇵🇹<br><br>“Just a bunch of know-it-alls!”. <a
+                                href="https://t.co/j94kmLwWe5">pic.twitter.com/j94kmLwWe5</a></p>&mdash; Fabrizio Romano
+                        (@FabrizioRomano) <a
+                            href="https://twitter.com/FabrizioRomano/status/1659620844400721925?ref_src=twsrc%5Etfw">May
+                            19,
+                            2023</a>
+                    </blockquote>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+
+
+                <div id="card11" class="block">
+
+                    <blockquote width="350px" class="twitter-tweet">
+                        <p lang="en" dir="ltr">think my Uber driver is flirting w/ me <a
+                                href="https://t.co/kcjlLTOKn5">pic.twitter.com/kcjlLTOKn5</a></p>&mdash; out of context
+                        dogs
+                        (@contextdogs) <a
+                            href="https://twitter.com/contextdogs/status/1659682247954268160?ref_src=twsrc%5Etfw">May
+                            19,
+                            2023</a>
+                    </blockquote>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+
+                <div id="card12" class="block">
+                    <blockquote width="350px" class="twitter-tweet">
+                        <p lang="en" dir="ltr">Copy paste...🐶😍 <a
+                                href="https://t.co/VgwnPUWXSv">pic.twitter.com/VgwnPUWXSv</a></p>&mdash; 𝕐o̴g̴
+                        (@Yoda4ever)
+                        <a href="https://twitter.com/Yoda4ever/status/1659763376447160320?ref_src=twsrc%5Etfw">May 20,
+                            2023</a>
+                    </blockquote>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- Add the necessary CSS and JS dependencies -->
+
+
+    <!-- Create the off-canvas menu -->
+    <div class="offcanvas offcanvas-right" id="offcanvasRight">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu</h5>
+            <button type="button" class="close" data-bs-dismiss="offcanvas" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
+        <div class="offcanvas-body">
+            <form id="ff" class="form-inline">
+                <div class="input-group">
+                    <input id="searchInput" type="text" class="form-control" id="searchInput" placeholder="Search">
+                    <button type="submit" class="btn btn-primary"><a class="fa fa-search"></a></button>
+                </div>
+            </form>
+            <ul id="searchResults" class="list-group mt-3">
+                <!-- Add your menu items here -->
+                <li class="list-group-item">Newcastle United vs Leicester City</li>
+                <li class="list-group-item">Rest in Peace</li>
+                <li class="list-group-item">Congratulations India</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Create a button to toggle the off-canvas menu -->
+    <button id="openbtn" class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasRight">
+        <a href="index3.html" id="opentweets">
+            Open tweets</a>
+    </button>
+
+
+
 
     <!-- Include the necessary Bootstrap and Font Awesome libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
