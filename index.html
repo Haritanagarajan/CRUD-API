@@ -106,23 +106,65 @@
 
 <body>
 
-    <!--logo-->
+    <!--navbar-->
 
-    <nav id="log" class="navbar navbar-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img id="logo" src="./assets/images/twitter-removebg-preview.png"
-                    alt="Users"></a>
-            <ul>
-                <li><a href="https://twitter.com/
-                    ">Home</a></li>
-                <li><a href="#users">Users</a></li>
-                <li><a href="#message">Messages</a></li>
-                <li><a href="#"><button id="profile" class="btn" onclick="profiles()">Profile</button></a></li>
-                <li><a href="index3.html">Tweets</a></li>
-                <li><a href="#"><button id="account" class="btn" onclick="account()">Account</button></a></li>
-            </ul>
+
+
+    <div class="container-fluid" id="page1">
+        <div class="row">
+
+            <!-- navbar -->
+
+            <nav id="log" class="navbar navbar-expand-lg navbar-light bg-light  bg-transparent" id="navbar">
+
+                <!--navbar logo-->
+
+                <div class=" col-3 col-sm-3 col-md-3 col-lg-3 ">
+                    <a class="navbar-brand ms-1" href="#">
+                        <img id="logo" src="./assets/images/twitter-removebg-preview.png" class="img-fluid" alt="logo">
+                    </a>
+                </div>
+
+                <!-- toggle button -->
+
+                <button class="navbar-toggler col-md-auto" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span></button>
+
+                <!-- navbar contents -->
+
+                <div class="col-9 ms-2">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-4">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://twitter.com/">HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="#users">USERS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#message">MESSAGES</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><button id="profile" class="btn"
+                                        onclick="profiles()">PROFILE</button></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index3.html">TWEETS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><button id="account" class="btn"
+                                        onclick="account()">ACCOUNT</button></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
-    </nav>
+    </div>
+
+
 
     <!--TWITTER TWEET-->
 
@@ -206,8 +248,8 @@
 
     <!-- Embedding a timeline -->
 
-            <a class="twitter-timeline" id="twittimeline" href="https://twitter.com/OpenAI" data-tweet-limit="1"
-                data-width="800" data-height="400">Tweets by OpenAI</a>
+    <a class="twitter-timeline" id="twittimeline" href="https://twitter.com/OpenAI" data-tweet-limit="1"
+        data-width="800" data-height="400">Tweets by OpenAI</a>
 
 
     <!--FOOTER-->
