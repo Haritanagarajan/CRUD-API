@@ -6,7 +6,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #aca9a7;
+            background-color:grey;
         }
 
         .container {
@@ -40,13 +40,13 @@
             margin-bottom: 15px;
         }
 
-        #forgot_password {
+        #next {
             margin-left: 130px;
             text-decoration: none;
             color: black;
         }
 
-        #forgot_password:hover {
+        #next:hover {
             text-decoration: underline;
         }
 
@@ -112,8 +112,8 @@
 
               <input type="submit" value="Sign in">
         </form>
-        <a id="forgot_password" href=""><button id="fbtn" onclick="forgotPassword()" class="btn">Next</button></a>
-        <p id="new_twitter">New to Twitter? <a id="signup" href="index3.html">Sign up</a></p>
+        <a id="next" href=""><button id="fbtn" class="btn">Next</button></a>
+        <p id="new_twitter">New to Twitter? <a id="signup" href="index2.html">Sign up</a></p>
     </div>
 
     <script>
@@ -142,17 +142,7 @@
             return true;
             // Additional password strength validations can be added here
 
-            function forgotPassword() {
-                var username = document.getElementById('username').value;
-
-                if (username.trim() === '') {
-                    alert('Please enter your username/email to recover your password.');
-                } else {
-                    // Implement your "Forgot Password" functionality here
-                    alert('An email with password recovery instructions has been sent to your registered email address.');
-                }
-            }
-            return true;
+    
         }
     </script>
 </body>
