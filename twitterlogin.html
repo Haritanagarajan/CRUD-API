@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Twitter Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #aca9a7;
+        }
+
+        .container {
+            max-width: 500px;
+            height: 430px;
+            height: 550px;
+            border-radius: 12px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        #forgot_password {
+            margin-left: 130px;
+            text-decoration: none;
+            color: black;
+        }
+
+        #forgot_password:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+
+        input[type="submit"] {
+            background-color: #1da1f2;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #twitterlogo {
+            margin-left: 220px;
+        }
+
+        #new_twitter {
+            margin-left: 160px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0c85d0;
+        }
+
+        #fbtn {
+            background-color:black;
+            color:white;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 30px;
+            width: 300px;
+            margin-left: -30px;
+            border-radius: 30px;
+            height: 40px;
+        }
+
+        #fbtn:hover {
+            background-color: #f5f2ef;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img id="twitterlogo" src="./assets/images/twitterrr-removebg-preview.png" width="40px" alt="logo">
+        <h1>Sign in to Twitter</h1>
+        <form action="" method="post" onsubmit="return validateForm()">
+
+            <label for="username">Username/Email:</label>
+            <input type="text" id="username" name="username" required>
+            <span id="usernameError" class="error-message"></span>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <span id="passwordError" class="error-message"></span>
+
+              <input type="submit" value="Sign in">
+        </form>
+        <a id="forgot_password" href=""><button id="fbtn" onclick="forgotPassword()" class="btn">Next</button></a>
+        <p id="new_twitter">New to Twitter? <a id="signup" href="index3.html">Sign up</a></p>
+    </div>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var usernameError = document.getElementById('usernameError');
+            var passwordError = document.getElementById('passwordError');
+
+            usernameError.textContent = '';
+            passwordError.textContent = '';
+
+            if (username.trim() === '') {
+                usernameError.textContent = 'Username/Email is required.';
+                return false;
+            }
+
+            if (password.trim() === '') {
+                passwordError.textContent = 'Password is required.';
+                return false;
+            }
+            if (password.length < 8) {
+                passwordError.textContent = 'Password must be at least 8 characters long.';
+                return false;
+            }
+            return true;
+            // Additional password strength validations can be added here
+
+            function forgotPassword() {
+                var username = document.getElementById('username').value;
+
+                if (username.trim() === '') {
+                    alert('Please enter your username/email to recover your password.');
+                } else {
+                    // Implement your "Forgot Password" functionality here
+                    alert('An email with password recovery instructions has been sent to your registered email address.');
+                }
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>
