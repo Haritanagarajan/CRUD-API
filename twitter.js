@@ -18,7 +18,6 @@ function validateapiform() {
       }
 
     }
-    alert("not a valid user")
 
   }
 }

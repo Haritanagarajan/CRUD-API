@@ -74,6 +74,17 @@
             border-color: red;
         }
 
+        #signup {
+            margin-left: 10px;
+            color: black;
+            text-decoration: none;
+            margin-top: 40px;
+        }
+
+        #signup:hover {
+            transform: scale(1.1);
+        }
+
         @media only screen and (min-width:320px) and (max-width:400px) {
             .container {
                 width: 200px;
@@ -166,24 +177,24 @@
     <div class="container">
         <h1>Twitter Login</h1>
 
-        <form onsubmit=" createtwitteruser()" action="#">
+        <form action="" method="get" onsubmit="validateForm();return false">
             <div class="form-group">
                 <label for="username1">Username:</label>
-                <input type="text" id="username1" name="username1" placeholder="Enter your username">
+                <input type="text" id="username1" name="username1" placeholder="Enter your username" required>
                 <span id="usernameError" class="error-message"></span>
             </div>
             <div class="form-group">
                 <label for="password1">Password:</label>
-                <input type="password" id="password1" name="password1" placeholder="Enter your password">
+                <input type="password" id="password1" name="password1" placeholder="Enter your password" required>
                 <span id="passwordError" class="error-message"></span>
             </div>
-            <div class="form-group">
-                <button type="submit" value="Log In" class="btn">signup</button>
-            </div>
+
+
+            <a id="signup" href="twitterhomepage.html">signup</a>
         </form>
     </div>
 
-   
+
 </body>
 
 </html>
