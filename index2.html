@@ -21,8 +21,8 @@
             background-color: #479da3;
             border-radius: 5px;
             box-shadow: 0px 0px 20px rgb(14, 97, 156);
-}
-        
+        }
+
 
         h1 {
             text-align: center;
@@ -71,46 +71,45 @@
         }
 
         @media only screen and (min-width:320px) and (max-width:400px) {
-        .container{
-        width:200px;
-        height:300px;
-        margin-left:30px;
-        } 
-        
-    }
+            .container {
+                width: 200px;
+                height: 300px;
+                margin-left: 30px;
+            }
 
-    @media only screen and (min-width:401px) and (max-width:430px) {
-        .container{
-        width:320px;
-        height:300px;
-        margin-left:30px;
-        } 
-        
-    }
+        }
 
-    @media only screen and (min-width:431px) and (max-width:770px) {
-        .container{
-        width:650px;
-        height:300px;
-        margin-left:30px;
-        } 
-        
-    }
+        @media only screen and (min-width:401px) and (max-width:430px) {
+            .container {
+                width: 320px;
+                height: 300px;
+                margin-left: 30px;
+            }
 
-    @media only screen and (min-width:771px) and (max-width:1025px) {
-        .container{
-        width:850px;
-        height:300px;
-        margin-left:80px;
-        } 
-        
-    }
-        
+        }
 
+        @media only screen and (min-width:431px) and (max-width:770px) {
+            .container {
+                width: 650px;
+                height: 300px;
+                margin-left: 30px;
+            }
+
+        }
+
+        @media only screen and (min-width:771px) and (max-width:1025px) {
+            .container {
+                width: 850px;
+                height: 300px;
+                margin-left: 80px;
+            }
+
+        }
     </style>
 
     <script>
-/* FORM VALIDATIONS*/
+
+        /* FORM VALIDATIONS*/
 
         function validateForm() {
             var username = document.getElementById("username").value;
@@ -163,7 +162,7 @@
     <div class="container">
         <h1>Twitter Login</h1>
 
-        <form onsubmit="return validateForm()" action="index3.html">
+        <form onsubmit="return validateForm()" action="twitterhomepage.html">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" placeholder="Enter your username" required>
