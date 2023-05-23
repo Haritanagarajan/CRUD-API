@@ -2,12 +2,17 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Twitter Login</title>
     <script src="twitter.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color:grey;
+            background-color: grey;
         }
 
         .container {
@@ -70,17 +75,14 @@
             margin-left: 220px;
         }
 
-        #new_twitter {
-            margin-left: 160px;
-        }
 
         input[type="submit"]:hover {
             background-color: #0c85d0;
         }
 
         #fbtn {
-            background-color:black;
-            color:white;
+            background-color: black;
+            color: white;
             font-weight: bold;
             font-size: 14px;
             margin-top: 30px;
@@ -90,19 +92,44 @@
             height: 40px;
         }
 
-        #fbtn:hover {
-            background-color: #f5f2ef;
+        #signin {
+            background-color: rgb(27, 154, 196);
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 20px;
+            width: 100px;
+            height: 40px;
+            border: none;
+            border-radius: 20px;
         }
 
+        #signin:hover {
+            background-color: #ccc;
+        }
+
+        #signup {
+            margin-top: 30px;
+        }
+
+        #newtwitter {
+            margin-top: 30px;
+            margin-left: 160px;
+        }
+
+        #fbtn:hover {
+            background-color: #ccc;
+        }
     </style>
+
 </head>
 
 <body>
     <div class="container">
         <img id="twitterlogo" src="./assets/images/twitterrr-removebg-preview.png" width="40px" alt="logo">
         <h1>Sign in to Twitter</h1>
-        <form action="twitterhomepage.html" method="get" onsubmit="return validateForm()">
 
+        <form method="get" action="" onsubmit="validateapiform(); return false">
             <label for="username">Username/Email:</label>
             <input type="text" id="username" name="username" required>
             <span id="usernameError" class="error-message"></span>
@@ -111,10 +138,11 @@
             <input type="password" id="password" name="password" required>
             <span id="passwordError" class="error-message"></span>
 
-              <input type="submit" value="Sign in">
+            <button id="signin" type="submit" onclick="validateForm()">Sign in</button>
         </form>
-        <a id="next" href=""><button id="fbtn" class="btn" onsubmit="validateapiform()">Next</button></a>
-        <p id="new_twitter">New to Twitter? <a id="signup" href="index2.html">Sign up</a></p>
+
+        <a id="next" href=""><button id="fbtn" class="btn">Welcome</button></a>
+        <p id="newtwitter">New to Twitter? <a id="signup" href="index2.html">Sign up</a></p>
     </div>
 
     <script>
@@ -136,14 +164,11 @@
                 passwordError.textContent = 'Password is required.';
                 return false;
             }
-            if (password.length < 8) {
-                passwordError.textContent = 'Password must be at least 8 characters long.';
-                return false;
-            }
+
             return true;
             // Additional password strength validations can be added here
 
-    
+
         }
     </script>
 </body>

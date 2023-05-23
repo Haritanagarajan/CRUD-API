@@ -1,34 +1,41 @@
-$(document).ready(function() {
-    // Fetch cake data from the JSON file
-    $.getJSON('twitter.json', function(data) {
-      var specialsContainer = $('#specials-container');
-     
-      
-      $.each(data.twitter, function(index, item) {
-        var twitter = $('<div class="item"></div>');
-        twitter.append('<img src="'+ item.image + '" alt="' + item.name + '" id="img"> ');
-        twitter.append('<h3 id="ca1">' + item.name + '</h3>');
-        twitter.append('<a href="#sec"><button type="button" class="btn btn-success" id="atc" >Tweet</button></a>')
-        specialsContainer.append(twitter);
-      });
-   
-    });
-  });
 
-  function validateapiform() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "http://localhost:3000/");
-    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xhttp.send(
-      JSON.stringify({
-      
-        username: username,
-      password: password,
-       
-      })
-    );
-    console.log("success");
-  
+
+function validateapiform() {
+  console.log("WORKING");
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "http://localhost:3000/twitter");
+  xhttp.send()
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      const objects = JSON.parse(this.responseText);
+      for (const twitt of objects) {
+        if (username == twitt["username"] && (password == twitt["password"])) {
+          console.log("success");
+          window.location.replace("twitterhomepage.html");
+        }
+      }
+
+    }
+    alert("not a valid user")
+
   }
+}
+
+function createtwitteruser() {
+  console.log("hello");
+  const username1 = document.getElementById("username1").value;
+  const password1 = document.getElementById("password2").value;
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("POST", "http://localhost:3000/twitter");
+  xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xhttp.send(
+    JSON.stringify({
+      username1: username1,
+      password1: password1
+    })
+  );
+  console.log("success");
+}
+
