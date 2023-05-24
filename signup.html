@@ -2,29 +2,41 @@
 <html lang="en">
 
 <head>
+
+    <!--META TAGS-->
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN PAGE</title>
+
+    <title>TWITTER SIGN UP</title>
     <script src="twitter.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
+        <!--CSS STYLES-->
+
     <style>
+
         body {
             font-family: Arial, sans-serif;
-            background-color: rgb(228, 238, 242);
+            background-color: grey;
+        }
+
+        #twitterlogo {
+            margin-left: 200px;
         }
 
         .container {
-            width: 900px;
-            margin-left: 300px;
-            margin-top: 200px;
-            height: 300px;
+
+            max-width:500px;
+            height: 500px;
+            border-radius: 12px;
+            margin: 100px auto;
             padding: 20px;
-            background-color: #479da3;
-            border-radius: 5px;
-            box-shadow: 0px 0px 20px rgb(14, 97, 156);
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
         }
 
 
@@ -39,7 +51,6 @@
         }
 
         label {
-            font-weight: bold;
             display: block;
         }
 
@@ -75,16 +86,24 @@
         }
 
         #signup {
-            margin-left: 10px;
-            color: black;
-            text-decoration: none;
-            margin-top: 40px;
+            
+            background-color: rgb(27, 154, 196);
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 20px;
+            width: 100px;
+            height: 40px;
+            border: none;
+            border-radius: 20px;
+
         }
 
         #signup:hover {
             transform: scale(1.1);
         }
 
+    
         @media only screen and (min-width:320px) and (max-width:400px) {
             .container {
                 width: 200px;
@@ -122,6 +141,8 @@
         }
     </style>
 
+<!--FUNCTIONALITIES-->
+
     <script>
 
         /* FORM VALIDATIONS*/
@@ -129,20 +150,23 @@
         function validateForm() {
             var username = document.getElementById("username1").value;
             var password = document.getElementById("password1").value;
+            var confirmpassword = document.getElementById("confirmpassword1").value;
             var usernameError = document.getElementById("usernameError");
             var passwordError = document.getElementById("passwordError");
+            var confirmError  = document.getElementById("confirmError");
 
 
-            // Clear previous error messages
+            
             usernameError.textContent = "";
             passwordError.textContent = "";
+            confirmError.textContent  = "";
 
-            // Validate username
+            
             if (username.trim() === "") {
                 usernameError.textContent = "Username is required";
                 isValid = false;
             } else {
-                // Check username format using regular expression
+                
                 var usernameRegex = /^[a-zA-Z0-9_]{5,15}$/;
                 if (!usernameRegex.test(username)) {
                     usernameError.textContent = "Invalid username format";
@@ -150,20 +174,32 @@
                 }
             }
 
-            // Validate password
+        
             if (password.trim() === "") {
                 passwordError.textContent = "Password is required";
                 isValid = false;
-            } else {
-                // Check password complexity using regular expression
+            } else{
+        
                 var passwordRegex = /^(?=.*\d)[A-Za-z\d]{8,}$/;
                 if (!passwordRegex.test(password)) {
                     passwordError.textContent = "Invalid password format";
                     isValid = false;
                 }
             }
-
+          
+            if (confirmpassword !== password) {
+                confirmError.textContent = "Password is wrong";
+                isValid = false;
+            } else{
+            
+                var confirmpasswordRegex = /^(?=.*\d)[A-Za-z\d]{8,}$/;
+                if (!confirmpasswordRegex.test(confirmpassword)) {
+                    confirmError.textContent = "Invalid password format";
+                    isValid = false;
+                }
+            }
             return isValid;
+            
         }
 
     </script>
@@ -175,22 +211,28 @@
     <!--LOGIN PAGE --->
 
     <div class="container">
-        <h1>Twitter Login</h1>
+        <img id="twitterlogo" src="./assets/images/twitterrr-removebg-preview.png" width="40px" height="35px"
+            alt="logo">
+        <h1>Sign up for Twitter</h1>
 
-        <form action="" method="get" onsubmit="validateForm();return false">
+        <form onsubmit="createtwitteruser(event)">
             <div class="form-group">
                 <label for="username1">Username:</label>
-                <input type="text" id="username1" name="username1" placeholder="Enter your username" required>
+                <input type="text" id="username1" name="username1"  required>
                 <span id="usernameError" class="error-message"></span>
             </div>
             <div class="form-group">
                 <label for="password1">Password:</label>
-                <input type="password" id="password1" name="password1" placeholder="Enter your password" required>
+                <input type="password" id="password1" name="password1" required>
                 <span id="passwordError" class="error-message"></span>
             </div>
+            <div class="form-group">
+                <label for="confirmpassword1">Password:</label>
+                <input type="password" id="confirmpassword1" name="confirmpassword1" required>
+                <span id="confirmError" class="error-message"></span>
+            </div>
 
-
-            <a id="signup" href="twitterhomepage.html">signup</a>
+            <button type="submit" id="signup" onclick="validateForm()">Sign up</button>
         </form>
     </div>
 

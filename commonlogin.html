@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--META TAGS-->
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>COMMON LOGIN FOR TWITTER</title>
+
+    <!--CDNS-->
+
+    <script src="twitter.js"></script>
+    <script src="admin.js"></script>
+
+    <!--CSS-->
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: grey;
+        }
+
+        #c1 {
+            max-width: 400px;
+            height: 400px;
+            border-radius: 12px;
+            margin: 50px;
+            padding: 20px;
+            margin-left: 250px;
+            margin-top: 200px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #c2 {
+            max-width: 400px;
+            height: 400px;
+            border-radius: 12px;
+            margin-left: 750px;
+            margin-top: -490px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            display: block;
+        }
+
+        h1 {
+            margin-left: 110px;
+        }
+
+        #twitterlogo {
+            margin-left: 180px;
+        }
+
+        #twitterlogo:hover {
+            transform: scale(1.1);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 5px;
+        }
+
+        #butons {
+            background-color: rgb(27, 154, 196);
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 20px;
+            width: 110px;
+            height: 40px;
+            border: none;
+            border-radius: 20px;
+
+        }
+
+        #butonss {
+            background-color: rgb(27, 154, 196);
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 20px;
+            width: 110px;
+            height: 40px;
+            border: none;
+            border-radius: 20px;
+
+        }
+
+        #butons:hover {
+            transform: scale(1.1);
+        }
+
+        #butonss:hover {
+            transform: scale(1.1);
+        }
+
+        .form-group button {
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="c1" onsubmit="adminreadvalue()">
+        <img id="twitterlogo" src="./assets/images/twitterrr-removebg-preview.png" width="40px" height="35px"
+            alt="logo">
+        <h1>Admin Login</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="adminusername">Admin Username:</label>
+                <input type="text" id="adminusername" name="adminusername" placeholder="Enter your admin username"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="adminpassword">Admin Password:</label>
+                <input type="password" id="adminpassword" name="adminpassword" placeholder="Enter your admin password"
+                    required>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="butons" >Admin Login</button>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="container" id="c2">
+        <img id="twitterlogo" src="./assets/images/twitterrr-removebg-preview.png" width="40px" height="35px"
+            alt="logo">
+        <h1>User Login</h1>
+        <form id="userLoginForm">
+            <div class="form-group">
+                <label for="userUsername">User Username:</label>
+                <input type="text" id="username" name="userUsername" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="userPassword">User Password:</label>
+                <input type="password" id="password" name="userPassword" placeholder="Enter your password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="butonss"  onclick="userlogin()">User Login</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+
+        var loginForm = document.getElementById('loginForm');
+        var userLoginForm = document.getElementById('userLoginForm');
+
+        loginForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var adminusername = document.getElementById('adminusername').value;
+            var adminpassword = document.getElementById('adminpassword').value;
+
+            // Perform admin login logic here
+            console.log('Admin Username:', adminusername);
+            console.log('Admin Password:', adminpassword);
+
+            // Reset the form
+            loginForm.reset();
+        });
+
+        userLoginForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var userUsername = document.getElementById('username').value;
+            var userPassword = document.getElementById('password').value;
+
+            // Perform user login logic here
+            console.log('User Username:', userUsername);
+            console.log('User Password:', userPassword);
+
+            // Reset the form
+            userLoginForm.reset();
+        });
+    </script>
+    <script>
+        function userlogin() {
+            window.location.replace("twitterlogin.html");
+        }
+    </script>
+</body>
+
+</html>

@@ -2,13 +2,26 @@
 <html lang="en">
 
 <head>
+
+    <!--META TAGS-->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--CDNS-->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--CSS STYLES-->
+
     <style>
         body {
             background-color: #f8f9fa;
@@ -227,7 +240,7 @@
 
         }
 
-        /* Adjust the width of the offcanvas menu */
+
         .offcanvas {
             width: 300px;
         }
@@ -291,15 +304,28 @@
             position: sticky;
             top: 0;
         }
+
+        .swal2-confirm {
+            background-color: black !important;
+            box-shadow: 6px 4px 8px rgb(13, 124, 168);
+        }
+
+        .swal2-title {
+            color: black;
+        }
     </style>
 
+    <!---FUNCTIONALITIES-->
+
     <script>
+
+        //PROFILE BUTTON FUNCTION
 
         function profiles() {
             const userProfile = {
                 name: '<i>Harita Nagarajan<i>',
                 email: '<i>30harita2002@example.com</i>',
-                avatarUrl: 'https://www.melivecode.com/users/4.png'
+                avatarUrl: 'data:image/png;base64,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'
             };
 
             const profil = document.getElementById('profile');
@@ -323,10 +349,37 @@
 
     </script>
 
-    <title>Bootstrap Left Navbar</title>
+    <!--SEARCH FUNCTIONALITY-->
+
+    <script>
+        function searchItems() {
+
+            var searchQuery = document.getElementById("searchInput").value.toLowerCase();
+            var itemList = document.getElementById("ll");
+            var items = itemList.getElementsByTagName("li");
+
+
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                var itemName = item.textContent.toLowerCase();
+
+                if (itemName.includes(searchQuery)) {
+                    item.style.display = "block"; // Show the item
+                } else {
+                    item.style.display = "none"; // Hide the item
+                }
+            }
+        }
+
+    </script>
+
+    <title>TWITTER HOMEPAGE</title>
+
 </head>
 
 <body>
+    <!--NAVBAR-->
+
     <div class="left">
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="#"><img id="twitterlogo" src="./assets/images/twitterrr-removebg-preview.png"
@@ -392,12 +445,9 @@
                 </ul>
             </div>
         </nav>
-
-
-
-
-
     </div>
+
+    <!--ACCOUNT DETAILS-->
 
     <div id="homepage" class="container mt-4">
         <h2>Home</h2>
@@ -408,13 +458,10 @@
             <p id="dotss"><a id="dot" href="twitterlogin.html">...</a></p>
 
         </div>
-       
+
+        <!-- TWEETS-->
 
         <main>
-
-
-
-            <!-- TWEETS-->
 
             <div class="container">
                 <div id="card1" class="block">
@@ -576,10 +623,10 @@
 
     </div>
 
-    <!-- Add the necessary CSS and JS dependencies -->
 
 
-    <!-- Create the off-canvas menu -->
+    <!-- OFFCANVAS WITH SEARCH -->
+
     <div class="offcanvas offcanvas-right" id="offcanvasRight">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title">Menu</h5>
@@ -591,7 +638,8 @@
             <form id="ff" class="form-inline">
                 <div class="input-group">
                     <input id="searchInput" type="text" class="form-control" id="searchInput" placeholder="Search">
-                    <button type="submit" class="btn btn-primary"><a class="fa fa-search"></a></button>
+                    <button type="submit" class="btn btn-primary" onclick="searchItems()"><a
+                            class="fa fa-search"></a></button>
                 </div>
             </form>
             <ul id="searchResults" class="list-group mt-3">
@@ -607,39 +655,30 @@
                 <li class="list-group-item"><a id="ll"
                         href="https://twitter.com/search?q=%22JENNIE%20CANNES%20FESTIVAL%22&src=trend_click&vertical=trends">JENNIE
                         CANNES FESTIVAL</a></li>
-            <li class="list-group-item"><div class="details">
-                <img src="./assets/images/twitterrr-removebg-preview.png" alt="Twitter Logo" width="30px" height="30px"class="logo">
-                <p><strong>Type of site:</strong> Social networking service</p>
-                <p><strong>Founded:</strong> March 21, 2006; 17 years ago, in San Francisco, California</p>
-                <p><strong>CEO:</strong> Elon Musk</p>
-                <p><strong>URL:</strong> <a href="https://twitter.com">twitter.com</a></p>
-                <p><strong>Users:</strong> Increase 450 million MAU (March 2023)</p>
-                <p><strong>Written in:</strong> Java, Ruby, Scala, JavaScript, Python</p>
-            </div>
-            </li>
+                <li class="list-group-item">
+                    <div class="details">
+                        <img src="./assets/images/twitterrr-removebg-preview.png" alt="Twitter Logo" width="30px"
+                            height="30px" class="logo">
+                        <p><strong>Type of site:</strong> Social networking service</p>
+                        <p><strong>Founded:</strong> March 21, 2006; 17 years ago, in San Francisco, California</p>
+                        <p><strong>CEO:</strong> Elon Musk</p>
+                        <p><strong>URL:</strong> <a href="https://twitter.com">twitter.com</a></p>
+                        <p><strong>Users:</strong> Increase 450 million MAU (March 2023)</p>
+                        <p><strong>Written in:</strong> Java, Ruby, Scala, JavaScript, Python</p>
+                    </div>
+                </li>
                 <li class="list-group-item"><!-- Create a button to toggle the off-canvas menu -->
                     <button class="btn btn-primary" type="button">
                         <a href="index3.html" id="opentweets">
                             Open tweets</a>
                     </button>
-        </li>
-        </ul>
+                </li>
+            </ul>
 
 
-    </div>
+        </div>
 
 
-
-
-
-
-
-
-    <!-- Include the necessary Bootstrap and Font Awesome libraries -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
