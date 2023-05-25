@@ -61,7 +61,7 @@ function showUserCreateBox() {
 
             '<div class="swal2-row">' +
             '<label for="password">password</label>' +
-            '<input id="password" class="swal2-input" placeholder="password" required>' +
+            '<input id="password" class="swal2-input" type="password" placeholder="password" required>' +
             "</div>" ,
 
             // '<div class="swal2-row">' +
@@ -179,7 +179,7 @@ function showUserEditBox(id) {
 
                     '<div class="swal2-row">' +
                     '<label for="password">Password</label>' +
-                    '<input id="password" class="swal2-input" placeholder="password" value="' + objects["password"] + ' ">' +
+                    '<input id="password" class="swal2-input" type="password" placeholder="password" value="' + objects["password"] + ' ">' +
                     "</div>" ,
 
                     // '<div class="swal2-row">' +

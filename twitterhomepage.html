@@ -19,6 +19,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="twitter.js"></script>
 
     <!--CSS STYLES-->
 
@@ -270,19 +271,23 @@
         document.addEventListener("DOMContentLoaded", function (event) {
 
             event.preventDefault();
-            // JavaScript code goes here
+            
 
             function updateProfileDetails(event) {
+                
                 event.preventDefault();
 
+                var profileName = prompt("Enter your First Profile name:");
+                var accountDetails = prompt("Enter your email address:");
 
-                var profileName = prompt("Enter your profile name:");
-                var accountDetails = prompt("Enter your account details:");
+              
 
-                var profileNameElement = document.getElementById("Hh");
+                var profileNameElement = document.getElementById("username");
                 profileNameElement.textContent = profileName;
 
-                var accountDetailsElement = document.getElementById("haritaa");
+                
+
+                var accountDetailsElement = document.getElementById("password");
                 accountDetailsElement.innerHTML = accountDetails;
 
                 profileNameElement.id = profileNameElement;
@@ -446,8 +451,8 @@
         <h2>Home</h2>
         <p id="foryou">for you</p>
         <div id="userdetails1">
-            <p id="Hh"></p>
-            <p id="haritaa"></p>
+            <p id="username"></p>
+            <p id="password"></p>
             <p id="dotss"><a id="dot" href="twitterlogin.html">...</a></p>
 
         </div>
