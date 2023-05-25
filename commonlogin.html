@@ -24,29 +24,18 @@
         }
 
         #c1 {
-            max-width: 400px;
-            height: 400px;
+            max-width: 450px;
+            height: 450px;
             border-radius: 12px;
             margin: 50px;
             padding: 20px;
-            margin-left: 250px;
-            margin-top: 200px;
+            margin-left: 550px;
+            margin-top: 150px;
             background-color: #fff;
             border-radius: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
-        #c2 {
-            max-width: 400px;
-            height: 400px;
-            border-radius: 12px;
-            margin-left: 750px;
-            margin-top: -490px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
 
         .form-group {
             margin-bottom: 10px;
@@ -57,7 +46,8 @@
         }
 
         h1 {
-            margin-left: 110px;
+            margin-left: 130px;
+            font-weight:300;
         }
 
         #twitterlogo {
@@ -69,8 +59,14 @@
         }
 
         .form-group input {
+            margin-top: 8px;
             width: 100%;
-            padding: 5px;
+            height:45px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        
         }
 
         #butons {
@@ -86,24 +82,9 @@
 
         }
 
-        #butonss {
-            background-color: rgb(27, 154, 196);
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-            margin-top: 20px;
-            width: 110px;
-            height: 40px;
-            border: none;
-            border-radius: 20px;
-
-        }
+       
 
         #butons:hover {
-            transform: scale(1.1);
-        }
-
-        #butonss:hover {
             transform: scale(1.1);
         }
 
@@ -138,37 +119,7 @@
 
     </div>
 
-    <!--USER LOGIN FORM-->
-
-    <div class="container" id="c2">
-        <img id="twitterlogo" src="./assets/images/twitterrr-removebg-preview.png" width="40px" height="35px"
-            alt="logo">
-        <h1>User Login</h1>
-        <form id="userLoginForm" onsubmit="userlogin(event)">
-            <div class="form-group">
-                <label for="userUsername">User Username:</label>
-                <input type="text" id="username" name="userUsername" required>
-            </div>
-            <div class="form-group">
-                <label for="userPassword">User Password:</label>
-                <input type="password" id="password" name="userPassword" required>
-            </div>
-            <div class="form-group">
-                <button type="submit" id="butonss">User Login</button>
-            </div>
-        </form>
-    </div>
-
-    <!--FUNCTIONALITIES-->
-
-    <script>
-
-        function userlogin(event) {
-            event.preventDefault();
-            window.location.replace("twitterlogin.html");
-        }
-
-    </script>
+    
     
 </body>
 

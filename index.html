@@ -18,33 +18,33 @@
 
     <script>
 
-        function account() {
-            Swal.fire({
-                title: 'Account',
-                customClass: {
-                    popup: 'red-popup',
-                },
-                html:
-                    '<input id="username" class="swal2-input" placeholder="Username"> ' +
-                    '<input id="password" type="password" class="swal2-input" placeholder="Password">',
+        // function account() {
+        //     Swal.fire({
+        //         title: 'Account',
+        //         customClass: {
+        //             popup: 'red-popup',
+        //         },
+        //         html:
+        //             '<input id="username" class="swal2-input" placeholder="Username"> ' +
+        //             '<input id="password" type="password" class="swal2-input" placeholder="Password">',
 
-                focusConfirm: false,
-                preConfirm: () => {
-                    const username = Swal.getPopup().querySelector('#username').value;
-                    const password = Swal.getPopup().querySelector('#password').value;
-                    return { username: username, password: password };
-                }
-            }).then((result) => {
-                if (result.value) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Logged in successfully',
-                        showConfirmButton: true,
+        //         focusConfirm: false,
+        //         preConfirm: () => {
+        //             const username = Swal.getPopup().querySelector('#username').value;
+        //             const password = Swal.getPopup().querySelector('#password').value;
+        //             return { username: username, password: password };
+        //         }
+        //     }).then((result) => {
+        //         if (result.value) {
+        //             Swal.fire({
+        //                 icon: 'success',
+        //                 title: 'Logged in successfully',
+        //                 showConfirmButton: true,
 
-                    })
-                }
-            })
-        }
+        //             })
+        //         }
+        //     })
+        // }
 
     </script>
 
@@ -73,30 +73,13 @@
 
     <script>
 
-        function profiles() {
-            const userProfile = {
-                name: '<i>Harita Nagarajan<i>',
-                email: '<i>30harita2002@example.com</i>',
-                avatarUrl: 'https://www.melivecode.com/users/4.png'
-            };
+function profile(event) {
+            event.preventDefault();
+            Swal.fire({
+                title: 'Harita nagarajan',
+                imageUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAaVBMVEX///8dofIAm/EAmvEAnfIUn/L7/v/v+P73/P+f0fjf8P30+v6l1Pl1v/bj8v3p9f6/4PqRy/fS6fyu2PkzqPMxp/Mgo/JnufVArPN+w/a33PpYtPTX7PxOsPSZzvi93/rM5vuGxvcAlvEH/RmUAAAJKElEQVR4nO2da5uqLhfGRw6VpaWZp8xG/9//Qz5qNdtUFJCFej38XuwXe2bUW2CxDgg/PwaDwWAwGAwGg8FgMBgMBsP/K2fPLuMkjCwrCvO4dIrL0k+kksLPCSaEUsuiFfU/hGArdo5LP5kKdp5LEam09ahkotDfushzStGQuj8ITgKRCz6gnlSOa4ZH5b1F0ueB84LHxAF9YEEeOY++urtWGnkueIkx5n0XGti7nPpe7Wj9Tl4wxZS6Oh6dj2DQuIy0I872Y9c7p/UFMWsYardXpwwL6Ws0IrbJKV4DmiasX7C4urk6rlSsAd+gePBqu+D2tsfYY9wwQHiyl6vEFhmBbcit7+hcU0I+P2c2YUTZHRiAVLyHfqD0+zkfftSaTnHBuOO9egfU0uYGZmREwqRE9E9FUYa43d3pcCeuuDU/jjTNJLME1g3VDKijE5OuM4RZjfR4dRq2HVqVwMreOM8swv3JhjDNpfv+XZJpEBjPFlg9KBkyxewWOvz9NmH2Y2WUaL5Alm6mIfH+vVVwiYG8FZ1iZL5zWy0OLPEMJ5CU7Nt+dWlYiSGcwBEbcvx+r5ASSwVWZpjReSDo3BZO4gOsj9Jk17lXe253u4aXJEBT/w1OYOdO57Qd6Sf9PwhHAzFZHKiJguTfN/Iy3P6fw9DcSQHixR3UIERp+zZFWjlz5NT6n2EDTgrlCp9ACvG/DrnzXKv2Vb+nxmK472DVKaudXMw7BYk+0dTRzvDLmyP+153vjFeL0/5TzsEBaULSJJ5OVzuz/pLKtDM12qw7k+Q09KSyRBBNGAXH+zMOMWq74t0okD08KC3UCfRgDClFvTiDnDu39tnvlmJ1+akYZBQO0M9FlWO3JrminnqAC5o6Au3evUfa0KqzN4UShb9gHuk3aCDCmJimqBqb2nMNgQQOPSzTln4gNwUODogl7T/qYNGCNR+2wP7QH4pw1DIMhwW2cxjsPw1npou7ERoIiFF2OnIFbTidFVGlGjrp4BisOfG9XkKFSs0dcmB11uhQCjnLsCiR76rwTYhHGoDb26A4lixt7OFSbG8Iq6pWIxC3USQ3HKFNKbFGJzRGgDgMxaVEhkPoFuKQfPy978S6ECGlsK8K6rNVL33q/rmgHagcOcHxCDodcsR44tE3Ra6QJ8fhN0nDU/U8S4wSivMx69UBsJfSiOcBRLvp69IoevJ2Vh7PUBbK8wCSw4QSnAdcs0cBOQ653rF0oo8SFHvdkkGfK+BswdWGP/6Md0wRdaeGJJ93L3l/LoWc3jfzJgTH9zFH4ASpcLoL1cyObighiV8wr7+0palcYxWPQBHOfW+wLfv1LXXwKVRVNqEUkTC2e6vsIRNRnAoVporq5eeYJq7tHf8cWDi3jXL20mpSVm0MqpGJiHXLXN8OPJiyTHMbLp/m1ZFgHqL5cIIAWpobt8KfCO4pAKH5tLIPcCslIGEvuBwAcEUWHGJr84GGIih0MsD/Yv7ST+2QfjVtlERXHVMZ5D4p6vsdJFtrxdaqbxb/RUHbO883JhFPJ4yIRax2OiLelkVF00mGyiFt0hF/MYH01x5LwOO0vQKbyrXK7HflpbA2JJHDpck+cuqQIEkd73jYZ5uRyOPSfIf3dUSALLjFyqphf2Lxj8mVCqtmtKr2BjJbCw/iqC4AfiCgAcSRadttyXL24Ip/t2M4+/DFTls2NYRrgcg2Y/sX6Mqj8GfDA5HwLZzQsWAJCM5vQiFrX7BwpzC246R14PFoGqC+9QAH867tmVk+XAyBjP5GbY1AJvGyTVvDkYXaeCMSgeVnmxyJIkWZbTqnROzzOrAvWOFg7oIxzAb9b4HaaMOcVUOLQIS/AtlaVQYJL6w/bSyKCkUFVjHGpoaieCetuG9JIkfRaQBnQxJFLekbezMSRavb22tFIr2xxX0b1UOhZTQdrpuYNEQCpx6nDZTyqcRk2MZf/WCUtjMfHuHKmxHN3ybgOb578cIo2Wj2VApuEasTOX+mxyUd2JpwFXS3Z5HnZEcIZt+ceWC+ihMfhWsNb5e+JKr36Hw8s3UtkEYC3wUO0S/9H4N4aVFfzG3CNIz94F5cH49r8euU8Y2srJvObcKfB26+H0A1wzuhLsz8UbjyzClzx25+4L5vUYGSzY5XXYhSMhfC7TI6HzVbjyr5GBEI1N2MTY71JvjHNgsWAWgTx/lQi++j32mClRqbkfMtRJHaZQEcldvir3NZraLA94W9wn4qVYths8J+yr8+iIvDumJCS3FkX3NcWbaNKN71t6JYl7VR3EcbftckUbxqz8OKasII6Dyq37WU2sQWeImwkgXSlCrdePuLi57NYydgHlSlgl22fDMqdmZ6OEtPjOrKFCzO+bIadZwlFtAFo36lEQWTQwm5xcy4QF3HFu4X0qhwa/9Jds4Na0/gAPjbo1xTirWWMjQcBNfjYcfR6wBtDUI1nVfY5+L5aZzAh8j0pip5KEkBLTCC80a5KIFjKxqBnKvFzQV6r56lBTrQle+FBe7BAw6go994gY826G3JM+Cv8LtlgZ1PyMNFwz5SWk7tZbDzNaytYZ2mokOfrSO+0BlNfHOwLS3n4Wg9xr7F3ic6Fn9NnMUBxzVGWuLfqbM4gNg7iZ7cN8dZHAAcfjOsKX1Bube5UMfpHlNtSy9JInkSkSy7xzPRuZR9/uFuIhzqk0t1dc4GEqmuYbM4HT3HvX2fXAoPxQBuTBGXtnP3imtFURRe4DzLOImak0s1amsgEYiJ2cf/ofdi53q5M9GVP+uDU6iEU7GG77dmHVg3jbNYNeLDvEMHOTikixbOKCrhvbSLu9hqhMqC6pnjz/EiGimO9YURR/0ateqruaR6oqOPPuSqWZEuwt7XVskmVOaUSAXsglBDZ6U4tBdMFV5d4AmSoLhYTl7DqYrnoURSnNiaQ8Bhzn6oXiQlKPQXSjIN8ahFqhuTlODIh/Q+pTjbGVHyITdFNLNX1HptDl4aokql9PGPVddEiV8sWUaaZu/5dT5DVGZ9UheOsufK1f1x/vWziDTR/5TQ5hAyRKLY91ZhNkXYP+6+m1gYoyYd0PARRd8fR2MUZe7z/li2Aj+Tw/nqBbZfulmW50lFnudZ7Ja+HRTbVmYwGAwGg8FgMBgMBoPBYDBI8T+eAaawC6WF7QAAAABJRU5ErkJggg=='
+            })
 
-            const profil = document.getElementById('profile');
-            profil.addEventListener('click', () => {
-                Swal.fire({
-                    title: 'Profile',
-                    customClass: {
-                        popup: 'red-popup',
-                    },
-                    html: `
-            <div>
-                <img width="50px" height="80px" src="${userProfile.avatarUrl}" alt="${userProfile.name}">
-                <h2>${userProfile.name}</h2>
-                <p>Email: ${userProfile.email}</p>
-            </div>
-            `,
-                    confirmButtonText: 'Close',
-                });
-            });
         }
 
     </script>
@@ -138,7 +121,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-4">
                             <li class="nav-item">
-                                <a class="nav-link" href="https://twitter.com/">HOME</a>
+                                <a class="nav-link" href="twitterhomepage.html">HOME</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link " href="#users">USERS</a>
@@ -148,15 +131,15 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#"><button id="profile" class="btn"
-                                        onclick="profiles()">PROFILE</button></a>
+                                        onclick="profile(event)">PROFILE</button></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index3.html">TWEETS</a>
+                                <a class="nav-link" href="tweets.html">TWEETS</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><button id="account" class="btn"
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="twitterhomepage.html"><button id="account" class="btn"
                                         onclick="account()">ACCOUNT</button></a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
