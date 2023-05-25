@@ -13,7 +13,7 @@
     <!--CDNS-->
 
     <script src="twitter.js"></script>
-    <script src="admin.js"></script>
+
 
     <!--CSS-->
 
@@ -111,88 +111,65 @@
             padding: 5px 10px;
         }
     </style>
+
 </head>
 
 <body>
-    <div class="container" id="c1" onsubmit="adminreadvalue()">
+
+    <!--ADMIN LOGIN FORM-->
+
+    <div class="container" id="c1">
         <img id="twitterlogo" src="./assets/images/twitterrr-removebg-preview.png" width="40px" height="35px"
             alt="logo">
         <h1>Admin Login</h1>
-        <form id="loginForm">
+        <form id="loginForm" onsubmit="adminreadvalue(event)">
             <div class="form-group">
                 <label for="adminusername">Admin Username:</label>
-                <input type="text" id="adminusername" name="adminusername" placeholder="Enter your admin username"
-                    required>
+                <input type="text" id="adminusername" name="adminusername" required>
             </div>
             <div class="form-group">
                 <label for="adminpassword">Admin Password:</label>
-                <input type="password" id="adminpassword" name="adminpassword" placeholder="Enter your admin password"
-                    required>
+                <input type="password" id="adminpassword" name="adminpassword" required>
             </div>
             <div class="form-group">
-                <button type="submit" id="butons" >Admin Login</button>
+                <button type="submit" id="butons">Admin Login</button>
             </div>
         </form>
 
     </div>
+
+    <!--USER LOGIN FORM-->
 
     <div class="container" id="c2">
         <img id="twitterlogo" src="./assets/images/twitterrr-removebg-preview.png" width="40px" height="35px"
             alt="logo">
         <h1>User Login</h1>
-        <form id="userLoginForm">
+        <form id="userLoginForm" onsubmit="userlogin(event)">
             <div class="form-group">
                 <label for="userUsername">User Username:</label>
-                <input type="text" id="username" name="userUsername" placeholder="Enter your username" required>
+                <input type="text" id="username" name="userUsername" required>
             </div>
             <div class="form-group">
                 <label for="userPassword">User Password:</label>
-                <input type="password" id="password" name="userPassword" placeholder="Enter your password" required>
+                <input type="password" id="password" name="userPassword" required>
             </div>
             <div class="form-group">
-                <button type="submit" id="butonss"  onclick="userlogin()">User Login</button>
+                <button type="submit" id="butonss">User Login</button>
             </div>
         </form>
     </div>
 
+    <!--FUNCTIONALITIES-->
+
     <script>
 
-        var loginForm = document.getElementById('loginForm');
-        var userLoginForm = document.getElementById('userLoginForm');
-
-        loginForm.addEventListener('submit', function (event) {
+        function userlogin(event) {
             event.preventDefault();
-
-            var adminusername = document.getElementById('adminusername').value;
-            var adminpassword = document.getElementById('adminpassword').value;
-
-            // Perform admin login logic here
-            console.log('Admin Username:', adminusername);
-            console.log('Admin Password:', adminpassword);
-
-            // Reset the form
-            loginForm.reset();
-        });
-
-        userLoginForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            var userUsername = document.getElementById('username').value;
-            var userPassword = document.getElementById('password').value;
-
-            // Perform user login logic here
-            console.log('User Username:', userUsername);
-            console.log('User Password:', userPassword);
-
-            // Reset the form
-            userLoginForm.reset();
-        });
-    </script>
-    <script>
-        function userlogin() {
             window.location.replace("twitterlogin.html");
         }
+
     </script>
+    
 </body>
 
 </html>
