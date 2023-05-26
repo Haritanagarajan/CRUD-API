@@ -73,7 +73,7 @@
 
         #link {
             color: black;
-            margin-top: 35px;
+            margin-top: 30px;
             margin-left: -45px;
         }
 
@@ -92,7 +92,7 @@
         }
 
         #twitterlogo {
-            margin-top: -680px;
+            margin-top: -690px;
             margin-left: 180px;
         }
 
@@ -140,10 +140,10 @@
             transform: scale(1.1);
         }
 
-        
+
 
         #dots {
-            margin-top:-0px;
+            margin-top: -0px;
             margin-left: -10px;
             color: black;
             font-weight: 700;
@@ -262,57 +262,67 @@
         .swal2-title {
             color: black;
         }
+
+        #logout {
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            width: 80px;
+            margin-left: -40px;
+            border-radius: 30px;
+            height: 40px;
+            margin-top: -30px;
+        }
+
+        #logout:hover {
+            background-color: #ccc;
+        }
     </style>
 
     <!---FUNCTIONALITIES-->
 
     <script>
 
-        document.addEventListener("DOMContentLoaded", function (event) {
 
-            event.preventDefault();
-            
+        function showUser() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "http://localhost:3000/userlogin");
+            xhttp.send();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    const objects = JSON.parse(this.responseText);
+                    for (const twitt of objects) {
+                        if (twitt['login'] == 1) {
 
-            function updateProfileDetails(event) {
-                
-                event.preventDefault();
+                            var profileName = twitt['username'][0];
 
-                var profileName = prompt("Enter your First Profile name:");
-                var accountDetails = prompt("Enter your email address:");
 
-              
 
-                var profileNameElement = document.getElementById("username");
-                profileNameElement.textContent = profileName;
 
-                
+                            var profileNameElement = document.getElementById("username");
+                            profileNameElement.textContent = profileName;
 
-                var accountDetailsElement = document.getElementById("password");
-                accountDetailsElement.innerHTML = accountDetails;
+                            profileNameElement.id = profileNameElement;
 
-                profileNameElement.id = profileNameElement;
+                            profileNameElement.style.marginLeft = "250px";
+                            profileNameElement.style.fontSize = "x-large";
+                            profileNameElement.style.fontWeight = "400";
+                            profileNameElement.style.backgroundColor = "black";
+                            profileNameElement.style.width = "35px";
+                            profileNameElement.style.color = "white";
+                            profileNameElement.style.alignItems = "center";
+                            profileNameElement.style.borderRadius = "20px";
+                            profileNameElement.style.paddingLeft = "10px";
 
-                profileNameElement.style.marginLeft = "250px";
-                profileNameElement.style.fontSize = "x-large";
-                profileNameElement.style.fontWeight = "400";
-                profileNameElement.style.backgroundColor = "black";
-                profileNameElement.style.width = "35px";
-                profileNameElement.style.color = "white";
-                profileNameElement.style.alignItems = "center";
-                profileNameElement.style.borderRadius = "20px";
-                profileNameElement.style.paddingLeft = "10px";
 
-                accountDetailsElement.style.color = "black";
-                accountDetailsElement.style.fontWeight = "500";
-                accountDetailsElement.style.margintop = "-50px";
-                accountDetailsElement.style.marginLeft = "250px";
 
+                        }
+                    }
+                }
             }
-
-            updateProfileDetails(event);
-        });
-
-
+        }
+        showUser();
 
     </script>
 
@@ -356,7 +366,7 @@
 
             var searchQuery = document.getElementById("searchInput").value.toLowerCase();
             var itemList = document.getElementById("ll");
-            var items = itemList.getElementsByTagName("li");
+            var items = itemList.getElementsByTagName("a");
 
 
             for (var i = 0; i < items.length; i++) {
@@ -435,10 +445,10 @@
 
                     </li>
                     <li>
-                         <div id="userdetails">
+                        <div id="userdetails">
                             <p id="dots"><a id="dot" href="twitterlogin.html">...</a></p>
-
-                        </div> 
+                            <button id="logout" onclick="logoutuserEdit()">Logout</button>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -475,10 +485,10 @@
 
 
                 <div id="card2" class="block">
-                    <blockquote width="350px" class="twitter-tweet">
+                    <blockquote width="950px !important" class="twitter-tweet">
                         <p lang="en" dir="ltr">Fly it like you stole it <br><br>📹: f22demoteam <a
                                 href="https://t.co/brwvON28Ry">pic.twitter.com/brwvON28Ry</a></p>&mdash; Aviation
-                        (@ilove_aviation) <a
+                        (@ilove_aviation) <a 
                             href="https://twitter.com/ilove_aviation/status/1659844728228118528?ref_src=twsrc%5Etfw">May
                             20,
                             2023</a>
