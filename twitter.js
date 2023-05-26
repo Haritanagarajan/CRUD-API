@@ -106,7 +106,9 @@ function createtwitteruser(event) {
     })
   );
   console.log("success");
-  window.location.replace("twitterhomepage.html");
+  
+  window.location.replace("twitterlogin.html");
+  
 }
 
 // Use the following command to install JSON Server

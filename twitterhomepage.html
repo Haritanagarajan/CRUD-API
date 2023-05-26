@@ -47,9 +47,6 @@
 
         }
 
-
-
-
         .left {
             position: sticky;
             top: 0;
@@ -161,7 +158,7 @@
         #homepage {
             height: 100%;
             background-color: rgb(240, 241, 241);
-            width: 600px;
+            width: 800px;
             margin-left: 400px;
 
         }
@@ -179,9 +176,9 @@
         }
 
         .block {
-            background-color: #ebebed;
-            width: 600px;
-            margin-top: 40px;
+            background-color: rgb(240, 241, 241);
+            width: 800px;
+            margin-top: 35px;
             padding-top: 50px;
             padding-bottom: 20px;
             margin-left: -80px;
@@ -189,6 +186,9 @@
 
         }
 
+        .twitter-tweet {
+            margin-left: -90px !important;
+        }
 
         .offcanvas {
             width: 300px;
@@ -296,14 +296,17 @@
                         if (twitt['login'] == 1) {
 
                             var profileName = twitt['username'][0];
+                             var accountemail =twitt['password'] + "@gmail.com"
 
 
-
-
+                            var accountemailElement = document.getElementById("password");
                             var profileNameElement = document.getElementById("username");
+
                             profileNameElement.textContent = profileName;
+                            accountemailElement.textContent = accountemail;
 
                             profileNameElement.id = profileNameElement;
+                            accountemailElement.id =  accountemailElement;
 
                             profileNameElement.style.marginLeft = "250px";
                             profileNameElement.style.fontSize = "x-large";
@@ -314,8 +317,14 @@
                             profileNameElement.style.alignItems = "center";
                             profileNameElement.style.borderRadius = "20px";
                             profileNameElement.style.paddingLeft = "10px";
+                            profileNameElement.style.marginTop = "-20px";
 
-
+                            accountemailElement.style.fontSize ="large";
+                            accountemailElement.style.color = "black";
+                            accountemailElement.style.fontWeight = "bold";
+                            accountemailElement.style.marginLeft = "210px";
+                            
+                            
 
                         }
                     }
@@ -473,7 +482,7 @@
 
             <div class="container">
                 <div id="card1" class="block">
-                    <blockquote width="350px" class="twitter-tweet">
+                    <blockquote width="1950px !important" class="twitter-tweet">
                         <p lang="en" dir="ltr">HEAT STEAL ANOTHER ONE IN BOSTON‼️ <a
                                 href="https://t.co/1pnIiOAYRJ">pic.twitter.com/1pnIiOAYRJ</a></p>&mdash; ESPN (@espn) <a
                             href="https://twitter.com/espn/status/1659754920331866113?ref_src=twsrc%5Etfw">May 20,
@@ -488,7 +497,7 @@
                     <blockquote width="950px !important" class="twitter-tweet">
                         <p lang="en" dir="ltr">Fly it like you stole it <br><br>📹: f22demoteam <a
                                 href="https://t.co/brwvON28Ry">pic.twitter.com/brwvON28Ry</a></p>&mdash; Aviation
-                        (@ilove_aviation) <a 
+                        (@ilove_aviation) <a
                             href="https://twitter.com/ilove_aviation/status/1659844728228118528?ref_src=twsrc%5Etfw">May
                             20,
                             2023</a>
@@ -498,7 +507,7 @@
 
 
                 <div id="card3" class="block">
-                    <blockquote width="350px" class="twitter-tweet">
+                    <blockquote width="950px !important" class="twitter-tweet">
                         <p lang="en" dir="ltr">NO. 8 SEED HEAT GO UP 2-0 IN BOSTON 🔥 <a
                                 href="https://t.co/mG8kta985N">pic.twitter.com/mG8kta985N</a></p>&mdash; Bleacher Report
                         (@BleacherReport) <a
@@ -511,7 +520,7 @@
 
 
                 <div id="card4" class="block">
-                    <blockquote width="350px" class="twitter-tweet">
+                    <blockquote width="950px !important" class="twitter-tweet">
                         <p lang="en" dir="ltr">Bear living its best life.. 😊<br><br>🎥 IG: ecojack <a
                                 href="https://t.co/69SU2R9uhy">pic.twitter.com/69SU2R9uhy</a></p>&mdash; Buitengebieden
                         (@buitengebieden) <a
@@ -525,7 +534,7 @@
 
 
                 <div id="card5" class="block">
-                    <blockquote width="350px" class="twitter-tweet">
+                    <blockquote width="950px !important" class="twitter-tweet">
                         <p lang="en" dir="ltr">creature comfort <a
                                 href="https://t.co/EYZSb2gJT7">pic.twitter.com/EYZSb2gJT7</a></p>&mdash; Dont Show Your
                         Cat
@@ -537,7 +546,7 @@
                 </div>
 
                 <div id="card6" class="block">
-                    <blockquote width="350px" class="twitter-tweet">
+                    <blockquote width="950px !important" class="twitter-tweet">
                         <p lang="en" dir="ltr">Mood <a href="https://t.co/e3yzLKg01O">pic.twitter.com/e3yzLKg01O</a></p>
                         &mdash; cat with confusing auras (@cat_auras) <a
                             href="https://twitter.com/cat_auras/status/1659683778355240961?ref_src=twsrc%5Etfw">May 19,
@@ -547,7 +556,7 @@
                 </div>
 
                 <div id="card7" class="block">
-                    <blockquote width="350px" class="twitter-tweet">
+                    <blockquote width="950px !important" class="twitter-tweet">
                         <p lang="en" dir="ltr">STOP BLOCKING TRAFFIC! <a
                                 href="https://t.co/1GkVVGkWIi">pic.twitter.com/1GkVVGkWIi</a></p>&mdash; Clown World ™
                         🤡
@@ -560,7 +569,7 @@
                 </div>
 
                 <div id="card8" class="block">
-                    <blockquote width="350px" class="twitter-tweet">
+                    <blockquote width="950px !important" class="twitter-tweet">
                         <p lang="en" dir="ltr">The cat train.. 😅 <a
                                 href="https://t.co/AogmspDEnh">pic.twitter.com/AogmspDEnh</a></p>&mdash; Buitengebieden
                         (@buitengebieden) <a
@@ -573,7 +582,7 @@
 
 
                 <div id="card9" class="block">
-                    <blockquote width="350px" class="twitter-tweet">
+                    <blockquote width="950px !important" class="twitter-tweet">
                         <p lang="en" dir="ltr">This is the year we learn to love the dandelions. <a
                                 href="https://t.co/nz1p6pSopr">pic.twitter.com/nz1p6pSopr</a></p>&mdash; Hank Green
                         (@hankgreen) <a
@@ -585,7 +594,7 @@
 
                 <div id="card10" class="block">
 
-                    <blockquote width="350px" class="twitter-tweet">
+                    <blockquotewidth="950px !important" class="twitter-tweet">
                         <p lang="en" dir="ltr">João Félix replying to “Newcastle only club willing to pay €100m” for him
                             on
                             Instagram ⚪️⤵️🇵🇹<br><br>“Just a bunch of know-it-alls!”. <a
@@ -594,14 +603,14 @@
                             href="https://twitter.com/FabrizioRomano/status/1659620844400721925?ref_src=twsrc%5Etfw">May
                             19,
                             2023</a>
-                    </blockquote>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
 
 
                 <div id="card11" class="block">
 
-                    <blockquote width="350px" class="twitter-tweet">
+                    <blockquote width="950px !important" class="twitter-tweet">
                         <p lang="en" dir="ltr">think my Uber driver is flirting w/ me <a
                                 href="https://t.co/kcjlLTOKn5">pic.twitter.com/kcjlLTOKn5</a></p>&mdash; out of context
                         dogs
@@ -614,7 +623,7 @@
                 </div>
 
                 <div id="card12" class="block">
-                    <blockquote width="350px" class="twitter-tweet">
+                    <blockquote width="950px !important" class="twitter-tweet">
                         <p lang="en" dir="ltr">Copy paste...🐶😍 <a
                                 href="https://t.co/VgwnPUWXSv">pic.twitter.com/VgwnPUWXSv</a></p>&mdash; 𝕐o̴g̴
                         (@Yoda4ever)
