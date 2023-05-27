@@ -1,22 +1,12 @@
 body {
-  font-size: 1.25rem;
-  background: #4CA1AF;
-  /* fallback for old browsers */
-  /* background: -webkit-linear-gradient(to right, #C4E0E5, #4CA1AF); */
-  /* Chrome 10-25, Safari 5.1-6 */
-  /* background: linear-gradient(to right, #C4E0E5, #4CA1AF); */
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-
-
-
+  background-color: #f8f9fa;
+  overflow-x: hidden;
 }
 
 #edit {
   font-weight: 600;
   box-shadow: 3px 3px 4px rgb(14, 107, 160);
-  background-color: #3c565b;
+  background-color: black;
   margin-left: -60px;
 
 }
@@ -36,9 +26,6 @@ body {
   background-color: black;
 }
 
-#logo:hover {
-  transform: scale(1.1);
-}
 
 #buton:hover {
   transform: scale(1.1);
@@ -49,7 +36,7 @@ body {
   margin-left: 10px;
   font-weight: 600;
   box-shadow: 3px 3px 4px rgb(14, 107, 160);
-  background-color: #3c565b;
+  background-color: black;
   border: none;
 
 }
@@ -57,46 +44,44 @@ body {
 #create {
   border-radius: 100px;
   font-weight: 600;
-  margin-left: -125px;
+  margin-left: -700px;
   margin-top: 59px;
-  background-color: #3c565b;
+  background-color: black;
   box-shadow: 3px 3px 4px rgb(14, 107, 160);
 }
 
 td {
   font-size: small;
   line-height: 3rem;
-  color: white;
+  color: black;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }
 
 th {
   font-size: smaller;
-  color: white;
+  color: black;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-/* Set font family and size for the table */
 .table {
   font-family: Arial, sans-serif;
   font-size: 14px;
 }
 
 
-/* Style the table rows */
 .table tbody td th {
   text-align: center;
 }
 
 
-/* Set the background color for table rows when hovered */
+
 .table tbody tr:hover {
   background-color: transparent;
 
 }
 
-/* Style the Options column */
+
 .table tbody td:last-child {
   text-align: center;
 }
@@ -130,25 +115,14 @@ th {
 
 }
 
-#logo {
-  margin-top: -2px;
-  width: 100px;
-  height: 70px;
-  border-radius: 30px;
-}
-
-#users:hover {
-  transform: scale(1.1);
-  text-shadow: 2px 3px 4px rgb(127, 12, 12);
-}
-
 #users {
   margin-top: 60px;
-  color: rgb(5, 35, 50);
+  color: black;
   font-size: small;
+  margin-left: 450px;
   text-transform: uppercase;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  text-shadow: 1px 1px 4px rgb(14, 97, 156);
+
 }
 
 #log {
@@ -203,49 +177,134 @@ th {
 
 /*navbar*/
 
-#log {
-  margin-top:30px;
+
+.navbar {
+  background-color: #f8f9fa;
+  font-size: larger;
+  width: 300px;
+  height: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
 }
 
-ul {
-  list-style: none;
-  
+.left {
+  position: sticky;
+  top: 0;
+  float: left;
+  width: 300px;
+  height: 100vh;
 }
 
-li {
-  font-size:15px;
-  font-weight:500;
-} 
-.collapse{
-  
-  font-size:10px;
-  padding:-10px;
-  z-index: -1;
-  }
-a {
-  color: rgb(12, 1, 1);
+.navbar-brand {
+  font-weight: bold;
+}
+
+#link {
+  color: black;
+  margin-top: 30px;
+  margin-left: -45px;
+}
+
+
+#link:hover {
+  background-color: rgb(230, 226, 226);
+  border-radius: 20px;
+}
+
+#link.active {
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+
+}
+
+#twitterlogo {
+  margin-top: -690px;
+  margin-left: 180px;
+}
+
+#twitterlogo:hover {
+  background-color: rgb(232, 220, 220);
+  border-radius: 15px;
+  width: 35px;
+  transform: scale(1.1);
+
+}
+
+#tweet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+
+
+}
+
+#tweetbtn {
+  background-color: rgb(25, 160, 222);
+  border: none;
+  width: 210px;
+  border-radius: 20px;
+  height: 40px;
+  color: white;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-left: -100px;
+
+}
+
+#tweetbtn:hover {
+  background-color: rgb(17, 151, 196);
+}
+
+.left {
+  float: left;
+  margin-top: -20px;
+  position: sticky;
+
+
+}
+
+.nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+#logout {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  width: 80px;
+  margin-left: -40px;
+  border-radius: 30px;
+  height: 40px;
+  margin-top: -30px;
+}
+
+#logout:hover {
+  background-color: #ccc;
+}
+
+#dot {
+  color: black;
   text-decoration: none;
-}
-
-a:hover {
-  color: rgb(14, 151, 220);
-
-}
-
-#profile:hover {
-  color: rgb(14, 151, 220);
-}
-#account:hover {
-  color: rgb(14, 151, 220);
+  font-weight: 700;
+  font-size: x-large;
+  margin-left: -10px;
 }
 
 #profile {
-  background-color: none;
-  margin: none;
-  margin-top: -6px;
-  font-size: 16px;
-  color: black;
-} 
+  border: none;
+  background-color: #f8f9fa;
+}
+
 
 .red-popup {
   background-color: rgb(247, 228, 228);
@@ -258,7 +317,7 @@ a:hover {
   background-color: black;
   color: hsl(0, 14%, 95%);
   border-color: black;
-  box-shadow: 6px 4px 8px  rgb(5, 55, 74);
+  box-shadow: 6px 4px 8px rgb(5, 55, 74);
 }
 
 .red-popup .swal2-confirm:hover {
@@ -298,8 +357,14 @@ a:hover {
 }
 
 #card1 {
-  background-color: #4CA1AF;
-  box-shadow: 1px 1px 30px black;
+  height: 550px;
+  width: 700px;
+  margin-left: 400px;
+  border-radius: 12px;
+  color: black;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 footer {
@@ -369,53 +434,58 @@ footer a:hover {
 
 /*MEDIA QUERIES*/
 
- @media only screen and (min-width:771px) and (max-width:1025px) {
-  .twitter-timeline{
+@media only screen and (min-width:771px) and (max-width:1025px) {
+  .twitter-timeline {
     margin-left: 100px;
   }
-} 
+}
 
 @media only screen and (min-width:426px) and (max-width:769px) {
 
-  .twitter-timeline{
+  .twitter-timeline {
     margin-left: -0px;
   }
-  #edit{
-  margin-left:10px;
+
+  #edit {
+    margin-left: 10px;
   }
-  #del{
-    width:56px;
+
+  #del {
+    width: 56px;
   }
 }
 
 @media only screen and (min-width:424px) and (max-width:767px) {
 
-  .twitter-timeline{
+  .twitter-timeline {
     margin-left: -0px;
   }
-  #message{
-    width:300px;
-    margin-left:50px;
+
+  #message {
+    width: 300px;
+    margin-left: 50px;
   }
 }
 
 @media only screen and (min-width:319px) and (max-width:423px) {
 
-  .twitter-timeline{
+  .twitter-timeline {
     margin-left: 10px;
   }
-  #message{
-    width:300px;
-    margin-left:20px;
-  }
-  footer{
-    background-color: #4CA1AF;
-    margin-left:20px;
-  }
-  #create{
-    margin-left:30px;
-  }
-  
-    
-}
 
+  #message {
+    width: 300px;
+    margin-left: 20px;
+  }
+
+  footer {
+    background-color: #4CA1AF;
+    margin-left: 20px;
+  }
+
+  #create {
+    margin-left: 30px;
+  }
+
+
+}

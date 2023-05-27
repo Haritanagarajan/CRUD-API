@@ -20,6 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="twitter.js"></script>
+    <script src="twitterhomepage.html"></script>
 
     <!--CSS STYLES-->
 
@@ -30,12 +31,14 @@
 
         }
 
-         .details{
-            margin-top:10px;
-         }
-         #searchlogo{
-            margin-left:140px;
-         }
+        .details {
+            margin-top: 10px;
+        }
+
+        #searchlogo {
+            margin-left: 140px;
+        }
+
         #ll {
             color: black;
             font-size: larger;
@@ -190,13 +193,12 @@
             margin-top: 35px;
             padding-top: 50px;
             padding-bottom: 20px;
-            margin-left: -80px;
             padding-left: 150px;
 
         }
 
         .twitter-tweet {
-            margin-left: -90px !important;
+            margin-left: -150px !important;
         }
 
         .offcanvas {
@@ -235,7 +237,7 @@
 
         .left {
             float: left;
-            margin-left:-80px;
+            margin-left: -80px;
             margin-top: -20px;
             position: sticky;
 
@@ -304,12 +306,100 @@
         #myUL li a:hover:not(.header) {
             background-color: #eee;
         }
+
+        .follow-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2px;
+            margin-bottom: 20px;
+            font-weight: 700;
+    
+        }
+
+        .follow-card h2 {
+            margin-top: 0;
+            display: flex; 
+            align-items: center;
+            font-size:large;
+            font-weight: 700;
+            gap: 10px;
+        }
+
+        #titlefollow {
+            font-size: x-large;
+            margin-top: 30px;
+            font-weight: 600;
+        }
+
+        .follow-card img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+           
+        }
+
+        .follow-card p {
+            margin-top: 5px;
+            margin-bottom: 10px;
+           
+           
+            
+        }
+
+        .follow-button {
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            width:150px;
+            height:40px;
+            border-radius: 5px;
+            font-weight: 600;
+            border-radius: 20px;
+            
+        }
     </style>
 
     <!---FUNCTIONALITIES-->
 
+    <!--follow functionality-->
+
+    <script>
+        var followersCount1 = 0;
+        var followersCount2 = 0;
+        var followersCount3 = 0;
+
+        function followButtonClicked(buttonNumber) {
+    if (buttonNumber === 1) {
+        followersCount1++;
+        if (followersCount1 === 1) {
+            document.getElementById("c1").textContent = "Following";
+            c1.style.backgroundColor=" rgb(14, 164, 233)"
+        }
+        document.getElementById("followers-count1").textContent = followersCount1 + " followers";
+    } else if (buttonNumber === 2) {
+        followersCount2++;
+        if (followersCount2 === 1) {
+            document.getElementById("c2").textContent = "Following";
+            c2.style.backgroundColor=" rgb(14, 164, 233)"
+        }
+        document.getElementById("followers-count2").textContent = followersCount2 + " followers";
+    } else if (buttonNumber === 3) {
+        followersCount3++;
+        if (followersCount3 === 1) {
+            document.getElementById("c3").textContent = "Following";
+            c3.style.backgroundColor="rgb(14, 164, 233)"
+
+        }
+        document.getElementById("followers-count3").textContent = followersCount3 + " followers";
+    }
+}
+
+    </script>
+
     <!--search functionality-->
-    
+
     <script>
 
         function myFunction() {
@@ -418,7 +508,7 @@
 
     </script>
 
-    <title>TWITTER HOMEPAGE</title>
+    <title>TWITTER</title>
 
 </head>
 
@@ -479,12 +569,6 @@
                         </form>
 
                     </li>
-                    <li>
-                        <div id="userdetails">
-                            <p id="dots"><a id="dot" href="twitterlogin.html">...</a></p>
-                            <button id="logout" onclick="logoutuserEdit()">Logout</button>
-                        </div>
-                    </li>
                 </ul>
             </div>
         </nav>
@@ -493,177 +577,180 @@
     <!--ACCOUNT DETAILS-->
 
     <div id="homepage" class="container mt-4">
-        <h2>Home</h2>
+        <h2>Explore</h2>
         <p id="foryou">for you</p>
-        <div id="userdetails1">
-            <p id="username"></p>
-            <p id="password"></p>
-            <p id="dotss"><a id="dot" href="twitterlogin.html">...</a></p>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 
-        </div>
+        <ul id="myUL">
+            <li><a href="#card1">HEAT STEAL ANOTHER ONE IN BOSTON‼️</a></li>
+            <li><a href="#card2">Fly it like you stole it</a></li>
 
+            <li><a href="#card3">NO. 8 SEED HEAT GO UP 2-0 IN BOSTON 🔥</a></li>
+            <li><a href="#card4">Bear living its best life.. 😊
+                </a></li>
 
+            <li><a href="#card5">creature comfort</a></li>
+            <li><a href="#card6">Mood</a></li>
+            <li><a href="#card7">STOP BLOCKING TRAFFIC!</a></li>
+        </ul>
         <!-- TWEETS-->
 
-        <main>
 
-            <div class="container">
-                <div id="card1" class="block">
-                    <blockquote width="1950px !important" class="twitter-tweet">
-                        <p lang="en" dir="ltr">HEAT STEAL ANOTHER ONE IN BOSTON‼️ <a
-                                href="https://t.co/1pnIiOAYRJ">pic.twitter.com/1pnIiOAYRJ</a></p>&mdash; ESPN (@espn) <a
-                            href="https://twitter.com/espn/status/1659754920331866113?ref_src=twsrc%5Etfw">May 20,
-                            2023</a>
-                    </blockquote>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-
-
-
-                <div id="card2" class="block">
-                    <blockquote width="950px !important" class="twitter-tweet">
-                        <p lang="en" dir="ltr">Fly it like you stole it <br><br>📹: f22demoteam <a
-                                href="https://t.co/brwvON28Ry">pic.twitter.com/brwvON28Ry</a></p>&mdash; Aviation
-                        (@ilove_aviation) <a
-                            href="https://twitter.com/ilove_aviation/status/1659844728228118528?ref_src=twsrc%5Etfw">May
-                            20,
-                            2023</a>
-                    </blockquote>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-
-
-                <div id="card3" class="block">
-                    <blockquote width="950px !important" class="twitter-tweet">
-                        <p lang="en" dir="ltr">NO. 8 SEED HEAT GO UP 2-0 IN BOSTON 🔥 <a
-                                href="https://t.co/mG8kta985N">pic.twitter.com/mG8kta985N</a></p>&mdash; Bleacher Report
-                        (@BleacherReport) <a
-                            href="https://twitter.com/BleacherReport/status/1659755021276258304?ref_src=twsrc%5Etfw">May
-                            20,
-                            2023</a>
-                    </blockquote>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-
-
-                <div id="card4" class="block">
-                    <blockquote width="950px !important" class="twitter-tweet">
-                        <p lang="en" dir="ltr">Bear living its best life.. 😊<br><br>🎥 IG: ecojack <a
-                                href="https://t.co/69SU2R9uhy">pic.twitter.com/69SU2R9uhy</a></p>&mdash; Buitengebieden
-                        (@buitengebieden) <a
-                            href="https://twitter.com/buitengebieden/status/1659845156923645953?ref_src=twsrc%5Etfw">May
-                            20,
-                            2023</a>
-                    </blockquote>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-
-
-
-                <div id="card5" class="block">
-                    <blockquote width="950px !important" class="twitter-tweet">
-                        <p lang="en" dir="ltr">creature comfort <a
-                                href="https://t.co/EYZSb2gJT7">pic.twitter.com/EYZSb2gJT7</a></p>&mdash; Dont Show Your
-                        Cat
-                        (@DontShowYourCat) <a
-                            href="https://twitter.com/DontShowYourCat/status/1659714904075431936?ref_src=twsrc%5Etfw">May
-                            20, 2023</a>
-                    </blockquote>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-
-                <div id="card6" class="block">
-                    <blockquote width="950px !important" class="twitter-tweet">
-                        <p lang="en" dir="ltr">Mood <a href="https://t.co/e3yzLKg01O">pic.twitter.com/e3yzLKg01O</a></p>
-                        &mdash; cat with confusing auras (@cat_auras) <a
-                            href="https://twitter.com/cat_auras/status/1659683778355240961?ref_src=twsrc%5Etfw">May 19,
-                            2023</a>
-                    </blockquote>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-
-                <div id="card7" class="block">
-                    <blockquote width="950px !important" class="twitter-tweet">
-                        <p lang="en" dir="ltr">STOP BLOCKING TRAFFIC! <a
-                                href="https://t.co/1GkVVGkWIi">pic.twitter.com/1GkVVGkWIi</a></p>&mdash; Clown World ™
-                        🤡
-                        (@ClownWorld_) <a
-                            href="https://twitter.com/ClownWorld_/status/1659583000873697288?ref_src=twsrc%5Etfw">May
-                            19,
-                            2023</a>
-                    </blockquote>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-
-                <div id="card8" class="block">
-                    <blockquote width="950px !important" class="twitter-tweet">
-                        <p lang="en" dir="ltr">The cat train.. 😅 <a
-                                href="https://t.co/AogmspDEnh">pic.twitter.com/AogmspDEnh</a></p>&mdash; Buitengebieden
-                        (@buitengebieden) <a
-                            href="https://twitter.com/buitengebieden/status/1659663208666243073?ref_src=twsrc%5Etfw">May
-                            19,
-                            2023</a>
-                    </blockquote>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-
-
-                <div id="card9" class="block">
-                    <blockquote width="950px !important" class="twitter-tweet">
-                        <p lang="en" dir="ltr">This is the year we learn to love the dandelions. <a
-                                href="https://t.co/nz1p6pSopr">pic.twitter.com/nz1p6pSopr</a></p>&mdash; Hank Green
-                        (@hankgreen) <a
-                            href="https://twitter.com/hankgreen/status/1659729741279268865?ref_src=twsrc%5Etfw">May 20,
-                            2023</a>
-                    </blockquote>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-
-                <div id="card10" class="block">
-
-                    <blockquotewidth="950px !important" class="twitter-tweet">
-                        <p lang="en" dir="ltr">João Félix replying to “Newcastle only club willing to pay €100m” for him
-                            on
-                            Instagram ⚪️⤵️🇵🇹<br><br>“Just a bunch of know-it-alls!”. <a
-                                href="https://t.co/j94kmLwWe5">pic.twitter.com/j94kmLwWe5</a></p>&mdash; Fabrizio Romano
-                        (@FabrizioRomano) <a
-                            href="https://twitter.com/FabrizioRomano/status/1659620844400721925?ref_src=twsrc%5Etfw">May
-                            19,
-                            2023</a>
-                        </blockquote>
-                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-
-
-                <div id="card11" class="block">
-
-                    <blockquote width="950px !important" class="twitter-tweet">
-                        <p lang="en" dir="ltr">think my Uber driver is flirting w/ me <a
-                                href="https://t.co/kcjlLTOKn5">pic.twitter.com/kcjlLTOKn5</a></p>&mdash; out of context
-                        dogs
-                        (@contextdogs) <a
-                            href="https://twitter.com/contextdogs/status/1659682247954268160?ref_src=twsrc%5Etfw">May
-                            19,
-                            2023</a>
-                    </blockquote>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-
-                <div id="card12" class="block">
-                    <blockquote width="950px !important" class="twitter-tweet">
-                        <p lang="en" dir="ltr">Copy paste...🐶😍 <a
-                                href="https://t.co/VgwnPUWXSv">pic.twitter.com/VgwnPUWXSv</a></p>&mdash; 𝕐o̴g̴
-                        (@Yoda4ever)
-                        <a href="https://twitter.com/Yoda4ever/status/1659763376447160320?ref_src=twsrc%5Etfw">May 20,
-                            2023</a>
-                    </blockquote>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-
-
+        <div class="container">
+            <div id="card1" class="block">
+                <blockquote width="1950px !important" class="twitter-tweet">
+                    <p lang="en" dir="ltr">HEAT STEAL ANOTHER ONE IN BOSTON‼️ <a
+                            href="https://t.co/1pnIiOAYRJ">pic.twitter.com/1pnIiOAYRJ</a></p>&mdash; ESPN (@espn) <a
+                        href="https://twitter.com/espn/status/1659754920331866113?ref_src=twsrc%5Etfw">May 20,
+                        2023</a>
+                </blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
 
-        </main>
+
+
+            <div id="card2" class="block">
+                <blockquote width="950px !important" class="twitter-tweet">
+                    <p lang="en" dir="ltr">Fly it like you stole it <br><br>📹: f22demoteam <a
+                            href="https://t.co/brwvON28Ry">pic.twitter.com/brwvON28Ry</a></p>&mdash; Aviation
+                    (@ilove_aviation) <a
+                        href="https://twitter.com/ilove_aviation/status/1659844728228118528?ref_src=twsrc%5Etfw">May
+                        20,
+                        2023</a>
+                </blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
+
+            <div id="card3" class="block">
+                <blockquote width="950px !important" class="twitter-tweet">
+                    <p lang="en" dir="ltr">NO. 8 SEED HEAT GO UP 2-0 IN BOSTON 🔥 <a
+                            href="https://t.co/mG8kta985N">pic.twitter.com/mG8kta985N</a></p>&mdash; Bleacher Report
+                    (@BleacherReport) <a
+                        href="https://twitter.com/BleacherReport/status/1659755021276258304?ref_src=twsrc%5Etfw">May
+                        20,
+                        2023</a>
+                </blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
+
+            <div id="card4" class="block">
+                <blockquote width="950px !important" class="twitter-tweet">
+                    <p lang="en" dir="ltr">Bear living its best life.. 😊<br><br>🎥 IG: ecojack <a
+                            href="https://t.co/69SU2R9uhy">pic.twitter.com/69SU2R9uhy</a></p>&mdash; Buitengebieden
+                    (@buitengebieden) <a
+                        href="https://twitter.com/buitengebieden/status/1659845156923645953?ref_src=twsrc%5Etfw">May
+                        20,
+                        2023</a>
+                </blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
+
+
+            <div id="card5" class="block">
+                <blockquote width="950px !important" class="twitter-tweet">
+                    <p lang="en" dir="ltr">creature comfort <a
+                            href="https://t.co/EYZSb2gJT7">pic.twitter.com/EYZSb2gJT7</a></p>&mdash; Dont Show Your
+                    Cat
+                    (@DontShowYourCat) <a
+                        href="https://twitter.com/DontShowYourCat/status/1659714904075431936?ref_src=twsrc%5Etfw">May
+                        20, 2023</a>
+                </blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
+            <div id="card6" class="block">
+                <blockquote width="950px !important" class="twitter-tweet">
+                    <p lang="en" dir="ltr">Mood <a href="https://t.co/e3yzLKg01O">pic.twitter.com/e3yzLKg01O</a></p>
+                    &mdash; cat with confusing auras (@cat_auras) <a
+                        href="https://twitter.com/cat_auras/status/1659683778355240961?ref_src=twsrc%5Etfw">May 19,
+                        2023</a>
+                </blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
+            <div id="card7" class="block">
+                <blockquote width="950px !important" class="twitter-tweet">
+                    <p lang="en" dir="ltr">STOP BLOCKING TRAFFIC! <a
+                            href="https://t.co/1GkVVGkWIi">pic.twitter.com/1GkVVGkWIi</a></p>&mdash; Clown World ™
+                    🤡
+                    (@ClownWorld_) <a
+                        href="https://twitter.com/ClownWorld_/status/1659583000873697288?ref_src=twsrc%5Etfw">May
+                        19,
+                        2023</a>
+                </blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
+            <div id="card8" class="block">
+                <blockquote width="950px !important" class="twitter-tweet">
+                    <p lang="en" dir="ltr">The cat train.. 😅 <a
+                            href="https://t.co/AogmspDEnh">pic.twitter.com/AogmspDEnh</a></p>&mdash; Buitengebieden
+                    (@buitengebieden) <a
+                        href="https://twitter.com/buitengebieden/status/1659663208666243073?ref_src=twsrc%5Etfw">May
+                        19,
+                        2023</a>
+                </blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
+
+            <div id="card9" class="block">
+                <blockquote width="950px !important" class="twitter-tweet">
+                    <p lang="en" dir="ltr">This is the year we learn to love the dandelions. <a
+                            href="https://t.co/nz1p6pSopr">pic.twitter.com/nz1p6pSopr</a></p>&mdash; Hank Green
+                    (@hankgreen) <a
+                        href="https://twitter.com/hankgreen/status/1659729741279268865?ref_src=twsrc%5Etfw">May 20,
+                        2023</a>
+                </blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
+            <div id="card10" class="block">
+
+                <blockquotewidth="950px !important" class="twitter-tweet">
+                    <p lang="en" dir="ltr">João Félix replying to “Newcastle only club willing to pay €100m” for him
+                        on
+                        Instagram ⚪️⤵️🇵🇹<br><br>“Just a bunch of know-it-alls!”. <a
+                            href="https://t.co/j94kmLwWe5">pic.twitter.com/j94kmLwWe5</a></p>&mdash; Fabrizio Romano
+                    (@FabrizioRomano) <a
+                        href="https://twitter.com/FabrizioRomano/status/1659620844400721925?ref_src=twsrc%5Etfw">May
+                        19,
+                        2023</a>
+                    </blockquote>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
+
+            <div id="card11" class="block">
+
+                <blockquote width="950px !important" class="twitter-tweet">
+                    <p lang="en" dir="ltr">think my Uber driver is flirting w/ me <a
+                            href="https://t.co/kcjlLTOKn5">pic.twitter.com/kcjlLTOKn5</a></p>&mdash; out of context
+                    dogs
+                    (@contextdogs) <a
+                        href="https://twitter.com/contextdogs/status/1659682247954268160?ref_src=twsrc%5Etfw">May
+                        19,
+                        2023</a>
+                </blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
+            <div id="card12" class="block">
+                <blockquote width="950px !important" class="twitter-tweet">
+                    <p lang="en" dir="ltr">Copy paste...🐶😍 <a
+                            href="https://t.co/VgwnPUWXSv">pic.twitter.com/VgwnPUWXSv</a></p>&mdash; 𝕐o̴g̴
+                    (@Yoda4ever)
+                    <a href="https://twitter.com/Yoda4ever/status/1659763376447160320?ref_src=twsrc%5Etfw">May 20,
+                        2023</a>
+                </blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
+
+        </div>
 
     </div>
 
@@ -673,48 +760,45 @@
 
     <div class="offcanvas offcanvas-right" id="offcanvasRight">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title">Menu</h5>
+            <h5 class="offcanvas-title"></h5>
             <button type="button" class="close" data-bs-dismiss="offcanvas" aria-label="Close">
                 <span aria-hidden="false">&times;</span>
             </button>
         </div>
         <div class="offcanvas-body">
-           
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+            <h1 id="titlefollow">Who to Follow</h1>
 
-            <ul id="myUL">
-                <li><a href="https://twitter.com/i/events/1657250474414731265">Nuggets</a></li>
-                <li><a
-                        href="https://twitter.com/search?q=%23MumbaiIndians&src=trend_click&vertical=trends">#MumbaiIndians</a>
-                </li>
+            <div class="follow-card">
+                <h2>
+                    <img src="https://pbs.twimg.com/profile_images/1544722618275827713/9-aMN_Wb_400x400.jpg" alt="Elon Musk Logo">
+                    Google Small Business
+                </h2>
+                <p> 
+                    @GoogleMyBiz</p>
+                <button class="follow-button" id="c1" onclick="followButtonClicked(1)">Follow</button>
+                <p class="followers-count" id="followers-count1">0 followers</p>
+            </div>
 
-                <li><a
-                        href="https://twitter.com/search?q=%23TAEHYUNGxCELINE&src=trend_click&vertical=trends">#TAEHYUNGxCELINE</a>
-                </li>
-                <li><a
-                        href="https://twitter.com/search?q=%22JENNIE%20CANNES%20FESTIVAL%22&src=trend_click&vertical=trends">JENNIE
-                        CANNES FESTIVAL</a></li>
+            <div class="follow-card">
+                <h2>
+                    <img src="https://pbs.twimg.com/profile_images/434605219021062144/Xb4M70kr_400x400.jpeg" alt="Google Maps Logo">
+                    Cahit Berkay
+                </h2>
+                <p>@cahit_berkay</p>
+                <button class="follow-button" id="c2" onclick="followButtonClicked(2)">Follow</button>
+                <p class="followers-count" id="followers-count2">0 followers</p>
+            </div>
 
-                <li>
-                    <div class="details">
-                        <img src="./assets/images/twitterrr-removebg-preview.png" alt="Twitter Logo" id="searchlogo" width="30px"
-                            height="30px" class="logo">
-                        <p><strong>Type of site:</strong> Social networking service</p>
-                        <p><strong>Founded:</strong> March 21, 2006; 17 years ago, in San Francisco, California</p>
-                        <p><strong>CEO:</strong> Elon Musk</p>
-                        <p><strong>URL:</strong> <a href="https://twitter.com">twitter.com</a></p>
-                        <p><strong>Users:</strong> Increase 450 million MAU (March 2023)</p>
-                        <p><strong>Written in:</strong> Java, Ruby, Scala, JavaScript, Python</p>
-                    </div>
-                </li>
-                <li> 
-                    <button class="btn" type="button">
-                        <a href="tweets.html" id="opentweets" style="background-color: rgb(36, 177, 243); color:white;font-weight: bold;border-radius: 30px;margin-top:-20px;">
-                            Open tweets</a>
-                    </button></li>
-            </ul>
-        </div>
+            <div class="follow-card">
+                <h2>
+                    <img src="https://pbs.twimg.com/profile_images/1488548719062654976/u6qfBBkF_400x400.jpg" alt="Bill Gates Logo">
+                    Twitter
 
+                </h2>
+                <p>@Twitter</p>
+                <button class="follow-button" id="c3"  onclick="followButtonClicked(3)">Follow</button>
+                <p class="followers-count" id="followers-count3">0 followers</p>
+            </div>
 
 </body>
 
