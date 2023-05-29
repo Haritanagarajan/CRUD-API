@@ -313,14 +313,14 @@
             padding: 2px;
             margin-bottom: 20px;
             font-weight: 700;
-    
+
         }
 
         .follow-card h2 {
             margin-top: 0;
-            display: flex; 
+            display: flex;
             align-items: center;
-            font-size:large;
+            font-size: large;
             font-weight: 700;
             gap: 10px;
         }
@@ -335,15 +335,15 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-           
+
         }
 
         .follow-card p {
             margin-top: 5px;
             margin-bottom: 10px;
-           
-           
-            
+
+
+
         }
 
         .follow-button {
@@ -352,12 +352,12 @@
             border: none;
             cursor: pointer;
             font-size: 18px;
-            width:150px;
-            height:40px;
+            width: 150px;
+            height: 40px;
             border-radius: 5px;
             font-weight: 600;
             border-radius: 20px;
-            
+
         }
     </style>
 
@@ -371,30 +371,30 @@
         var followersCount3 = 0;
 
         function followButtonClicked(buttonNumber) {
-    if (buttonNumber === 1) {
-        followersCount1++;
-        if (followersCount1 === 1) {
-            document.getElementById("c1").textContent = "Following";
-            c1.style.backgroundColor=" rgb(14, 164, 233)"
-        }
-        document.getElementById("followers-count1").textContent = followersCount1 + " followers";
-    } else if (buttonNumber === 2) {
-        followersCount2++;
-        if (followersCount2 === 1) {
-            document.getElementById("c2").textContent = "Following";
-            c2.style.backgroundColor=" rgb(14, 164, 233)"
-        }
-        document.getElementById("followers-count2").textContent = followersCount2 + " followers";
-    } else if (buttonNumber === 3) {
-        followersCount3++;
-        if (followersCount3 === 1) {
-            document.getElementById("c3").textContent = "Following";
-            c3.style.backgroundColor="rgb(14, 164, 233)"
+            if (buttonNumber === 1) {
+                followersCount1++;
+                if (followersCount1 === 1) {
+                    document.getElementById("c1").textContent = "Following";
+                    c1.style.backgroundColor = " rgb(14, 164, 233)"
+                }
+                document.getElementById("followers-count1").textContent = followersCount1 + " followers";
+            } else if (buttonNumber === 2) {
+                followersCount2++;
+                if (followersCount2 === 1) {
+                    document.getElementById("c2").textContent = "Following";
+                    c2.style.backgroundColor = " rgb(14, 164, 233)"
+                }
+                document.getElementById("followers-count2").textContent = followersCount2 + " followers";
+            } else if (buttonNumber === 3) {
+                followersCount3++;
+                if (followersCount3 === 1) {
+                    document.getElementById("c3").textContent = "Following";
+                    c3.style.backgroundColor = "rgb(14, 164, 233)"
 
+                }
+                document.getElementById("followers-count3").textContent = followersCount3 + " followers";
+            }
         }
-        document.getElementById("followers-count3").textContent = followersCount3 + " followers";
-    }
-}
 
     </script>
 
@@ -421,59 +421,6 @@
         }
     </script>
 
-
-    <script>
-
-
-        function showUser() {
-            const xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "http://localhost:3000/userlogin");
-            xhttp.send();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    const objects = JSON.parse(this.responseText);
-                    for (const twitt of objects) {
-                        if (twitt['login'] == 1) {
-
-                            var profileName = twitt['username'][0];
-                            var accountemail = twitt['password'] + "@gmail.com"
-
-
-                            var accountemailElement = document.getElementById("password");
-                            var profileNameElement = document.getElementById("username");
-
-                            profileNameElement.textContent = profileName;
-                            accountemailElement.textContent = accountemail;
-
-                            profileNameElement.id = profileNameElement;
-                            accountemailElement.id = accountemailElement;
-
-                            profileNameElement.style.marginLeft = "250px";
-                            profileNameElement.style.fontSize = "x-large";
-                            profileNameElement.style.fontWeight = "400";
-                            profileNameElement.style.backgroundColor = "black";
-                            profileNameElement.style.width = "35px";
-                            profileNameElement.style.color = "white";
-                            profileNameElement.style.alignItems = "center";
-                            profileNameElement.style.borderRadius = "20px";
-                            profileNameElement.style.paddingLeft = "10px";
-                            profileNameElement.style.marginTop = "-20px";
-
-                            accountemailElement.style.fontSize = "large";
-                            accountemailElement.style.color = "black";
-                            accountemailElement.style.fontWeight = "bold";
-                            accountemailElement.style.marginLeft = "210px";
-
-
-
-                        }
-                    }
-                }
-            }
-        }
-        showUser();
-
-    </script>
 
     <script>
 
@@ -526,32 +473,31 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav flex-column">
                     <li class="nav-item">
-                        <a id="link1" class="nav-link active" href="twitterhomepage.html"><a id="link" href=""
+                        <a id="link1" class="nav-link active" href=""><a id="link" href="twitterhomepage.html"
                                 class=" fa fa-home"></a>
                             Home</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link1" class="nav-link"
-                            href="https://business.twitter.com/en/blog/how-to-increase-twitter-followers.html"><a
-                                id="link" href="" class="fa fa-compass"></a>
+                        <a id="link1" class="nav-link" href=""><a id="link" href="exploretwitter.html"
+                                class="fa fa-compass"></a>
                             Explore</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link1" class="nav-link" href="https://twitter.com/notifications"><a id="link" href=""
+                        <a id="link1" class="nav-link" href=""><a id="link" href="https://twitter.com/notifications"
                                 class="fa fa-bell"></a>
                             Notifications</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link1" class="nav-link" href="https://twitter.com/messages"><a id="link"
+                        <a id="link1" class="nav-link" href=""><a id="link" href="https://twitter.com/messages"
                                 class="fa fa-list"></a> Messages</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link1" class="nav-link" href="https://twitter.com/i/bookmarks"><a id="link" href=""
+                        <a id="link1" class="nav-link" href=""><a id="link" href="https://twitter.com/i/bookmarks"
                                 class="fa fa-bookmark"></a>
                             Bookmarks</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link1" class="nav-link" href="index.html"><a id="link" href="" class="fa fa-twitter"></a>
+                        <a id="link1" class="nav-link" href="#"><a id="link" href="" class="fa fa-twitter"></a>
                             Twitter</a>
                     </li>
                     <li class="nav-item">
@@ -560,8 +506,8 @@
                     </li>
                     <li class="nav-item">
                         <a id="link1" class="nav-link"
-                            href="https://business.twitter.com/en/blog/how-to-increase-twitter-followers.html"><a
-                                id="link" href="" class="fa fa-bars"></a> More</a>
+                            href=""><a
+                                id="link" href="https://business.twitter.com/en/blog/how-to-increase-twitter-followers.html" class="fa fa-bars"></a> More</a>
                     </li>
                     <li>
                         <form id="tweet" action="https://twitter.com/intent/tweet" method="GET">
@@ -770,10 +716,11 @@
 
             <div class="follow-card">
                 <h2>
-                    <img src="https://pbs.twimg.com/profile_images/1544722618275827713/9-aMN_Wb_400x400.jpg" alt="Elon Musk Logo">
+                    <img src="https://pbs.twimg.com/profile_images/1544722618275827713/9-aMN_Wb_400x400.jpg"
+                        alt="Elon Musk Logo">
                     Google Small Business
                 </h2>
-                <p> 
+                <p>
                     @GoogleMyBiz</p>
                 <button class="follow-button" id="c1" onclick="followButtonClicked(1)">Follow</button>
                 <p class="followers-count" id="followers-count1">0 followers</p>
@@ -781,7 +728,8 @@
 
             <div class="follow-card">
                 <h2>
-                    <img src="https://pbs.twimg.com/profile_images/434605219021062144/Xb4M70kr_400x400.jpeg" alt="Google Maps Logo">
+                    <img src="https://pbs.twimg.com/profile_images/434605219021062144/Xb4M70kr_400x400.jpeg"
+                        alt="Google Maps Logo">
                     Cahit Berkay
                 </h2>
                 <p>@cahit_berkay</p>
@@ -791,12 +739,13 @@
 
             <div class="follow-card">
                 <h2>
-                    <img src="https://pbs.twimg.com/profile_images/1488548719062654976/u6qfBBkF_400x400.jpg" alt="Bill Gates Logo">
+                    <img src="https://pbs.twimg.com/profile_images/1488548719062654976/u6qfBBkF_400x400.jpg"
+                        alt="Bill Gates Logo">
                     Twitter
 
                 </h2>
                 <p>@Twitter</p>
-                <button class="follow-button" id="c3"  onclick="followButtonClicked(3)">Follow</button>
+                <button class="follow-button" id="c3" onclick="followButtonClicked(3)">Follow</button>
                 <p class="followers-count" id="followers-count3">0 followers</p>
             </div>
 
