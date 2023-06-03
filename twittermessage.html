@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>twittermessage</title>
+    <script src="twitter.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </script>
+    <style>
+        .left {
+            position: sticky;
+            top: 0;
+            float: left;
+            width: 500px;
+            height: 100vh;
+        }
+
+        #link {
+            color: black;
+            margin-top: 30px;
+            margin-left: -45px;
+            text-decoration: none;
+        }
+
+
+        #link:hover {
+            background-color: rgb(238, 231, 231);
+            border-radius: 20px;
+        }
+
+        #link.active {
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+
+        }
+
+        #twitterlogo {
+            margin-top: 30px;
+            margin-left: 70px;
+        }
+
+        #twitterlogo:hover {
+            border-radius: 15px;
+            width: 35px;
+            transform: scale(1.1);
+
+        }
+
+
+
+
+        #tweetbtn {
+            background-color: rgb(25, 160, 222);
+            border: none;
+            width: 210px;
+            border-radius: 20px;
+            height: 40px;
+            color: white;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-left: -30px;
+
+        }
+
+        #tweetbtn:hover {
+            background-color: rgb(17, 151, 196);
+        }
+
+
+
+        .nav {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+
+        }
+
+        #logout {
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            width: 80px;
+            margin-left: -40px;
+            border-radius: 30px;
+            height: 40px;
+            margin-top: -30px;
+        }
+
+        #logout:hover {
+            background-color: #ccc;
+        }
+
+        #dot {
+            color: black;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: x-large;
+            margin-left: -10px;
+        }
+
+        #profile {
+            border: none;
+            background-color: #f8f9fa;
+        }
+
+
+        .red-popup {
+            background-color: rgb(247, 228, 228);
+            color: white;
+            border-color: red;
+            box-shadow: 6px 4px 8px rgb(5, 55, 74);
+        }
+
+        .red-popup .swal2-confirm {
+            background-color: black;
+            color: hsl(0, 14%, 95%);
+            border-color: black;
+            box-shadow: 6px 4px 8px rgb(5, 55, 74);
+        }
+
+        .red-popup .swal2-confirm:hover {
+            transform: scale(1.1);
+        }
+
+
+        .swal2-title {
+            color: black;
+            font-size: x-larger;
+            text-transform: uppercase;
+            font-style: italic;
+
+        }
+
+        .nav-item a{
+            list-style: none;
+            padding-left:20px;
+            margin-left:50px;
+            font-size:x-large;
+            font-weight: 600;
+        }
+        .nav-item{
+            list-style: none;
+            padding:10px;
+            padding-left:20px;
+            margin-left:-50px;
+            font-size:x-large;
+            font-weight: 300;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="left">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#"><img id="twitterlogo" src="./assets/images/twitterrr-removebg-preview.png"
+                    alt="logo" width="30px"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav flex-column">
+                    <li class="nav-item">
+                        <a id="link1" class="nav-link active" href=""><a id="link" href="twitterhomepage.html"
+                                class=" fa fa-home"></a>
+                            Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="link1" class="nav-link" href=""><a id="link" href="exploretwitter.html"
+                                class="fa fa-compass"></a>
+                            Explore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="link1" class="nav-link" href=""><a id="link" href="https://twitter.com/notifications"
+                                class="fa fa-bell"></a>
+                            Notifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="link1" class="nav-link" href=""><a id="link" href=""
+                                class="fa fa-list"></a><button> Messages</button></a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a id="link1" class="nav-link" href=""><a id="link" href="https://twitter.com/i/bookmarks"
+                                class="fa fa-bookmark"></a>
+                            Bookmarks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="link1" class="nav-link" href=""><a id="link" href="" class="fa fa-twitter"></a>
+                            Twitter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="link1" class="nav-link" href=""><a id="link"
+                                href="https://business.twitter.com/en/blog/how-to-increase-twitter-followers.html"
+                                class="fa fa-bars"></a> More</a>
+                    </li>
+                    <li>
+                        <form id="tweet" action="https://twitter.com/intent/tweet" method="GET">
+                            <input type="submit" id="tweetbtn" value="Tweet">
+                        </form>
+
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+
+</body>
+
+</html>

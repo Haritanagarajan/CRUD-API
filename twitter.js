@@ -61,7 +61,7 @@ function logoutuserEdit() {
     if (this.readyState == 4 && this.status == 200) {
       const objects = JSON.parse(this.responseText);
       for (const twitt of objects) {
-        if (twitt['login']==1) {
+        if (twitt['login'] == 1) {
           const xhttpObj = new XMLHttpRequest();
           xhttpObj.open("PUT", `http://localhost:3000/userlogin/${twitt['id']}`);
           xhttpObj.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -70,7 +70,7 @@ function logoutuserEdit() {
               username: twitt['username'],
               password: twitt['password'],
               login: 0,
-    
+
             })
           );
           xhttpObj.onreadystatechange = function () {
@@ -106,9 +106,9 @@ function createtwitteruser(event) {
     })
   );
   console.log("success");
-  
+
   window.location.replace("twitterlogin.html");
-  
+
 }
 
 // Use the following command to install JSON Server
@@ -144,4 +144,68 @@ function adminreadvalue(event) {
   }
 
 }
+
+//tweet the message
+
+
+function createtweetmsg() {
+  console.log("userlogin");
+  const message = document.getElementById("message").value;
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "http://localhost:3000/userlogin");
+  xhttp.send();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      const objects = JSON.parse(this.responseText);
+      for (const twitt of objects) {
+        if ((message == twitt["tweetmsg"])) {
+          console.log("success");
+          loggeduserEdit(twitt['id']);
+          return false;
+        }
+      }
+    }
+
+  }
+
+}
+
+
+function showtweetmsgbox(event) {
+  event.preventDefault();
+
+  Swal.fire({
+      title: "Create user",
+      customClass: {
+          popup: 'red-popup',
+      },
+      html:
+          '<form id="myform"  class="is-validated">' +
+          '<div class="swal2-row">' +
+          '<input id="id" type="hidden" class="swal2-input">' +
+          "</div>" +
+
+
+          '<div class="swal2-row">' +
+          '<label for="username">UserName</label>' +
+          '<input id="username" name="username" class="swal2-input" placeholder="UserName" pattern="[a-zA-Z]+" required>' +
+          '</div>' +
+
+          '<div class="swal2-row">' +
+          '<label for="message">Message</label>' +
+          '<input id="message" class="swal2-input" type="textarea" placeholder="message" required>' +
+          "</div>" ,
+
+      showCancelButton: true,
+
+      preConfirm: async () => {
+
+          
+        createtweetmsg();    
+
+      },
+  });
+}
+
+
 
