@@ -10,7 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>TWITTER SIGN UP</title>
+
     <script src="twitter.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
@@ -96,6 +98,22 @@
             border: none;
             border-radius: 20px;
 
+        }
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgb(25, 160, 222);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
         }
 
         #signup:hover {
@@ -186,7 +204,7 @@
                 }
             }
 
-            
+
 
             if (confirmpassword.trim() === "") {
                 confirmError.textContent = "Confirm password is required";
@@ -197,11 +215,6 @@
                     isValid = false;
                 }
             }
-
-          
-
-
-
 
             return isValid;
 

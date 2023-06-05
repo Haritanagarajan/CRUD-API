@@ -9,9 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>twittermessage</title>
-    <script src="twitter.js"></script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -22,8 +25,76 @@
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
         crossorigin="anonymous"></script>
 
+    <script>
+
+        $(document).ready(function () {
+            $("#search").on("click keypress blur", function () {
+                var username = document.getElementById("search").value;
+                const Reqxhttpp = new XMLHttpRequest();
+                Reqxhttpp.open("GET", "http://localhost:3000/userlogin");
+                Reqxhttpp.send();
+                Reqxhttpp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        const objects = JSON.parse(this.responseText);
+                        for (const twitt of objects) {
+                            if (twitt['login'] == 1) {
+                                const xhttp = new XMLHttpRequest();
+                                xhttp.open("GET", `http://localhost:3000/userlogin?username_like=${username}`);
+                                xhttp.send();
+                                xhttp.onreadystatechange = function () {
+                                    if (this.readyState == 4 && this.status == 200) {
+                                        const objects = JSON.parse(this.responseText);
+                                        for (const users of objects) {
+                                            $("#userbtn").text(`${users.username}`);
+                                            $("#u_id").val(users.id);
+                                            $("#user_name").val(users.username);
+                                            $("#senderu_id").val(twitt['id']);
+                                            $("#sender_username").val(twitt['username']);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            })
+        })
+
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+            $("#send").on("click", function () {
+                const twittmsg = document.getElementById("inputmessage").value;
+                const uid = document.getElementById("u_id").value;
+                const username = document.getElementById("user_name").value;
+                const sender_uid = document.getElementById("senderu_id").value;
+                const sender_username = document.getElementById("sender_username").value;
+                const xhttp = new XMLHttpRequest();
+                xhttp.open("POST", "http://localhost:3000/Twittermessage");
+                xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                xhttp.send(
+                    JSON.stringify({
+                        user_id: uid,
+                        user_name: username,
+                        twittmsg: twittmsg,
+                        sender_uid: sender_uid,
+                        sender_username: sender_username,
+                    })
+                );
+                console.log("success");
+            })
+        })
+
+
+
+    </script>
+
+
+
+
     <style>
-        
         /*STYLES*/
 
         .left {
@@ -58,7 +129,7 @@
 
         #twitterlogo {
             margin-left: 70px;
-            margin-top: -700px;
+            margin-top: -625px;
         }
 
         #twitterlogo:hover {
@@ -68,16 +139,16 @@
 
         }
 
-            #tweetbtn {
+        #tweetbtn {
             background-color: rgb(25, 160, 222);
             border: none;
-            width: 210px;
-            border-radius: 20px;
-            height: 40px;
+            width: 220px;
+            border-radius: 25px;
+            height: 50px;
             color: white;
             font-weight: bold;
-            margin-left: -110px;
-            margin-top: 10px;
+            margin-left: -100px;
+            margin-top: 30px;
             font-size: large;
 
         }
@@ -135,11 +206,11 @@
 
         .nav-item {
             list-style: none;
-            padding: 10px;
             padding-left: 20px;
             margin-left: -50px;
             font-size: x-large;
             font-weight: 400;
+            padding: 5px;
         }
 
         #message {
@@ -151,7 +222,7 @@
         #messages {
             font-size: 25px;
             font-weight: 700;
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         #a1 {
@@ -201,14 +272,92 @@
         }
 
         .modal-body {
-            height: 600px;
+            height: 500px;
         }
 
         .modal-content {
-            width: 650px;
+            width: 600px;
             border-radius: 20px;
         }
 
+        .topnav {
+            overflow: hidden;
+
+        }
+
+
+
+        .topnav input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: none;
+
+
+        }
+
+        .topnav .search-container button {
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+            background-color: white;
+        }
+
+        #search {
+            width: 500px;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgb(25, 160, 222);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        #userbtn {
+            float: left;
+        }
+
+        .fa-search {
+            border: rgb(20, 134, 187);
+            color: rgb(15, 133, 187);
+        }
+
+        #inputmessage {
+            border: none;
+
+        }
+
+
+        .modal-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
     </style>
 
 </head>
@@ -292,7 +441,7 @@
 
     <!--SELECT MESSAGE-->
 
-    <div id="selectmsg">
+    <!-- <div id="selectmsg">
         <p id="p1">Select a message</p>
         <p id="p3">Choose from your existing conversations, start a<br> new one, or just keep swimming. </p>
         <button type="button" id="writemsg" class="btn btn-primary" data-bs-toggle="modal"
@@ -300,8 +449,7 @@
             new message
         </button>
 
-    </div>
-
+    </div> -->
 
 
 
@@ -315,11 +463,79 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <div class="topnav">
+                        <div class="search-container">
+                            <form action="">
+                                <input id="search" type="text" placeholder="Search.." name="search">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                            <button type="button" class="btn btn-alert" id="userbtn" type="button"
+                                class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop"></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+
+
+    <!-- Modal -->
+
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Message</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="fromto">
+                        <div class="form-group">
+                            <label for="senderu_id">FROM User Id</label>
+                            <input id="senderu_id" readonly type="text" class="form-control"
+                                placeholder="Type your message here...">
+                        </div>
+                        <div class="form-group">
+                            <label for="sender_username">FROM User Name</label>
+                            <input id="sender_username" readonly type="text" class="form-control"
+                                placeholder="Type your message here...">
+                        </div>
+                        <div class="form-group">
+                            <label for="u_id">To User Id</label>
+                            <input id="u_id" readonly type="text" class="form-control"
+                                placeholder="Type your message here...">
+                        </div>
+                        <div class="form-group">
+                            <label for="user_name">To User Name</label>
+                            <input id="user_name" readonly type="text" class="form-control"
+                                placeholder="Type your message here...">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputmessage">Message</label>
+                            <input id="inputmessage" type="text" class="form-control"
+                                placeholder="Type your message here...">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="send" class="btn btn-secondary" data-bs-dismiss="modal">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <scipt src="twitter.js">
+        </script>
 </body>
 
 </html>
