@@ -31,8 +31,10 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
         integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
-        
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <script src="showtwittermessage.html"></script>
 
 
     <!--RENDERIG THE TWITTER TIMELINE WIDGET-->
@@ -96,9 +98,8 @@
                             Home</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link1" class="nav-link"
-                            href=""><a
-                                id="link" href="exploretwitter.html" class="fa fa-compass"></a>
+                        <a id="link1" class="nav-link" href=""><a id="link" href="exploretwitter.html"
+                                class="fa fa-compass"></a>
                             Explore</a>
                     </li>
                     <li class="nav-item">
@@ -124,9 +125,9 @@
                                 onclick="profiles()">Profile</button> </a>
                     </li>
                     <li class="nav-item">
-                        <a id="link1" class="nav-link"
-                            href=""><a
-                                id="link" href="https://business.twitter.com/en/blog/how-to-increase-twitter-followers.html" class="fa fa-bars"></a> More</a>
+                        <a id="link1" class="nav-link" href=""><a id="link"
+                                href="https://business.twitter.com/en/blog/how-to-increase-twitter-followers.html"
+                                class="fa fa-bars"></a> More</a>
                     </li>
                     <li>
                         <form id="tweet" action="https://twitter.com/intent/tweet" method="GET">
@@ -136,8 +137,8 @@
                     </li>
                     <li>
                         <div id="userdetails">
-                            <p id="dots"><a id="dot" href="twitterlogin.html">...</a></p>
-                            <button id="logout" onclick="logoutuserEdit()">Logout</button>
+                            <p id="dots"><a id="dot" href="#">...</a></p>
+                            <button id="logout" onclick="message()">Message</button>
                         </div>
                     </li>
                 </ul>
@@ -205,6 +206,13 @@
 
 
     <!--FOOTER-->
+
+
+    <script>
+        function message() {
+            window.location.replace("showtwittermessage.html");
+        }
+    </script>
 
     <footer>
         <a href="https://twitter.com/your_twitter_handle">Follow us on Twitter</a>
